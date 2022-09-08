@@ -32,7 +32,9 @@ INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is
 INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
 INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
-
+INSERT INTO public.product_category (id, product_id, category_id) VALUES (DEFAULT, 1, 2);
+INSERT INTO public.product_category (id, product_id, category_id) VALUES (DEFAULT, 2, 3);
+INSERT INTO public.product_category (id, product_id, category_id) VALUES (DEFAULT, 3, 2);
 
 
 
