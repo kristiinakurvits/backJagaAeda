@@ -62,6 +62,7 @@ CREATE TABLE product (
                          CONSTRAINT product_pk PRIMARY KEY (id)
 );
 
+
 -- Table: product_category
 CREATE TABLE product_category (
                                   id serial  NOT NULL,
