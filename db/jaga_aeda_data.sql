@@ -33,7 +33,9 @@ INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is
 INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
 
-
+INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'P', '2022-09-08 15:32:25.000000');
+INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'C', '2022-09-08 15:32:49.000000');
+INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'F', '2022-09-08 15:32:50.000000');
 
 
 
