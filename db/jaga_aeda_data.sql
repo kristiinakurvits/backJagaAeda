@@ -37,6 +37,14 @@ INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'P', '2022-0
 INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'C', '2022-09-08 15:32:49.000000');
 INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'F', '2022-09-08 15:32:50.000000');
 
+INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 1, 1);
+INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 2, 2);
+INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 3, 3);
+
+INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 1, 3);
+INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 2, 3);
+INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 3, 3);
+
 
 
 
