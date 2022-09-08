@@ -52,4 +52,6 @@ INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 1, 
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 3, 1);
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 2, 3);
 
-
+INSERT INTO public.user_order (id, order_id, product_user_id, order_user_id) VALUES (DEFAULT, 1, 1, 2);
+INSERT INTO public.user_order (id, order_id, product_user_id, order_user_id) VALUES (DEFAULT, 2, 2, 3);
+INSERT INTO public.user_order (id, order_id, product_user_id, order_user_id) VALUES (DEFAULT, 3, 3, 1);
