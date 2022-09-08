@@ -20,6 +20,9 @@ INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'l');
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'ml');
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'tk');
 
+INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Maasikad', 'Värsked', 4, 1, true, null, '2022-09-08', 'A');
+INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
+INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
 
 
