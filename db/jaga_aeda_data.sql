@@ -20,6 +20,15 @@ INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'l');
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'ml');
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'tk');
 
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Harjumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Tartumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Pärnumaa');
+
+INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 1, 1, 'Kodu', null, null, 'Tondi, Tallinn');
+INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 2, 2, 'Käbi talu', null, null, 'Talutee, Tartu');
+INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 3, 3, 'Tamme talu', null, null, 'Tammetee, Lihula');
+
+
 
 
 
