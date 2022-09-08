@@ -64,7 +64,7 @@ CREATE TABLE product (
 
 -- Table: product_category
 CREATE TABLE product_category (
-                                  id int  NOT NULL,
+                                  id serial  NOT NULL,
                                   product_id int  NOT NULL,
                                   category_id int  NOT NULL,
                                   CONSTRAINT product_category_pk PRIMARY KEY (id)
