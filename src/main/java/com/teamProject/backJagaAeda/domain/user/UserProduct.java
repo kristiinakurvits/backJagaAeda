@@ -1,13 +1,13 @@
 package com.teamProject.backJagaAeda.domain.user;
 
 import com.teamProject.backJagaAeda.domain.product.Product;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "user_product")
 public class UserProduct {

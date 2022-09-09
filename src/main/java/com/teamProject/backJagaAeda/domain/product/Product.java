@@ -1,14 +1,14 @@
 package com.teamProject.backJagaAeda.domain.product;
 
 import com.teamProject.backJagaAeda.domain.product.MeasureUnit;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "product")
 public class Product {

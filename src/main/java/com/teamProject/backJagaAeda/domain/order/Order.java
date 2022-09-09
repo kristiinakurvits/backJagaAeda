@@ -1,13 +1,13 @@
 package com.teamProject.backJagaAeda.domain.order;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.Instant;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "\"order\"")
 public class Order {
