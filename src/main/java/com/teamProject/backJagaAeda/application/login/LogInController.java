@@ -1,6 +1,5 @@
 package com.teamProject.backJagaAeda.application.login;
 
-import com.teamProject.backJagaAeda.application.user.UserInfo;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +15,12 @@ public class LogInController {
 
     @PostMapping("/sisene")
     @Operation(summary = "Sisse logimine")
-    public UserInfo logIn(@RequestBody LogInRequest request) {
+    public LogInResponse logIn(@RequestBody LogInRequest request) {
+
         return loginService.logIn(request);
     }
+
+//    @PostMapping("/registreeru")
+//    @Operation(summary = "Uue kasutaja lisamine")
+//    public UserResponse
 }
