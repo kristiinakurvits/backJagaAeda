@@ -44,10 +44,6 @@ INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 1, 1)
 INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 2, 2);
 INSERT INTO public.user_product (id, user_id, product_id) VALUES (DEFAULT, 3, 3);
 
-INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 1, 3);
-INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 2, 3);
-INSERT INTO public.user_role (id, user_id, role_id) VALUES (DEFAULT, 3, 3);
-
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 1, 2);
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 3, 1);
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 2, 3);

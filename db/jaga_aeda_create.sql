@@ -6,11 +6,8 @@ CREATE SCHEMA public
     GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
-
-
-
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-08 07:01:54.382
+-- Last modification date: 2022-09-09 07:41:02.037
 
 -- tables
 -- Table: category
@@ -73,7 +70,6 @@ CREATE TABLE product (
                          CONSTRAINT product_pk PRIMARY KEY (id)
 );
 
-
 -- Table: product_category
 CREATE TABLE product_category (
                                   id serial  NOT NULL,
@@ -109,6 +105,7 @@ CREATE TABLE "user" (
                         id serial  NOT NULL,
                         user_name varchar(255)  NOT NULL,
                         password varchar(255)  NOT NULL,
+                        role_id int  NOT NULL,
                         CONSTRAINT user_ak_1 UNIQUE (user_name) NOT DEFERRABLE  INITIALLY IMMEDIATE,
                         CONSTRAINT user_pk PRIMARY KEY (id)
 );
@@ -128,14 +125,6 @@ CREATE TABLE user_product (
                               user_id int  NOT NULL,
                               product_id int  NOT NULL,
                               CONSTRAINT user_product_pk PRIMARY KEY (id)
-);
-
--- Table: user_role
-CREATE TABLE user_role (
-                           id serial  NOT NULL,
-                           user_id int  NOT NULL,
-                           role_id int  NOT NULL,
-                           CONSTRAINT user_role_pk PRIMARY KEY (id)
 );
 
 -- foreign keys
@@ -243,20 +232,13 @@ ALTER TABLE user_product ADD CONSTRAINT user_product_user
             INITIALLY IMMEDIATE
 ;
 
--- Reference: user_role_role (table: user_role)
-ALTER TABLE user_role ADD CONSTRAINT user_role_role
+-- Reference: user_role (table: user)
+ALTER TABLE "user" ADD CONSTRAINT user_role
     FOREIGN KEY (role_id)
         REFERENCES role (id)
         NOT DEFERRABLE
             INITIALLY IMMEDIATE
 ;
 
--- Reference: user_role_user (table: user_role)
-ALTER TABLE user_role ADD CONSTRAINT user_role_user
-    FOREIGN KEY (user_id)
-        REFERENCES "user" (id)
-        NOT DEFERRABLE
-            INITIALLY IMMEDIATE
-;
-
 -- End of file.
+
