@@ -1,5 +1,6 @@
-package com.teamProject.backJagaAeda;
+package com.teamProject.backJagaAeda.domain.product;
 
+import com.teamProject.backJagaAeda.domain.product.MeasureUnit;
 import lombok.Getter;
 import lombok.Setter;
 

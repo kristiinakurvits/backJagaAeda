@@ -1,5 +1,6 @@
-package com.teamProject.backJagaAeda;
+package com.teamProject.backJagaAeda.domain.user;
 
+import com.teamProject.backJagaAeda.domain.order.Order;
 import lombok.Getter;
 import lombok.Setter;
 

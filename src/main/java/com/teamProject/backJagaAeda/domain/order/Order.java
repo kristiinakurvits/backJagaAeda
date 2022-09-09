@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda;
+package com.teamProject.backJagaAeda.domain.order;
 
 import lombok.Getter;
 import lombok.Setter;
