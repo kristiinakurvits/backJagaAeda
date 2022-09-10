@@ -20,7 +20,9 @@ public class LogInController {
         return loginService.logIn(request);
     }
 
-//    @PostMapping("/registreeru")
-//    @Operation(summary = "Uue kasutaja lisamine")
-//    public UserResponse
+    @PostMapping("/registreeru")
+    @Operation(summary = "Uue kasutaja loomine")
+    public LogInResponse register(@RequestBody RegisterRequest request) {
+        return null;
+    }
 }
