@@ -16,16 +16,18 @@ public class LoginService {
 
 
     public LogInResponse logIn(LogInRequest request) {
+        return userService.logIn(request);
+
 
         // TODO: Get valid user
-        // TODO: 09.09.2022 UserService leia valiidne kasutaja userservice -> userrepository kaudu
-        // TODO: 09.09.2022 See tulemus peab olema optional klassi sees
-        // TODO: 09.09.2022 Kasutades validationservicet teete uue meetodi, mis kontrollib, kas see optional user isempt
+        // TODO: UserService leia valiidne kasutaja userservice -> userrepository kaudu
+        // TODO: See tulemus peab olema optional klassi sees
+        // TODO: Kasutades validationservicet teete uue meetodi, mis kontrollib, kas see optional user isempty
         //  kui on empty, throw businesserror
         //  kui validatsioonis viga ei tulnud, siis returni selle meetodi sees sellest optional user objektist geti abil user
         // TODO: M2pi saadud user LogInResponseks, returni see tulemus
-        // TODO: 09.09.2022
-        return null ;
+        // TODO:
+
     }
 }
 
