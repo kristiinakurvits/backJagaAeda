@@ -1,14 +1,14 @@
-INSERT INTO public."user" (id, user_name, password) VALUES (DEFAULT, 'kristiina', '123');
-INSERT INTO public."user" (id, user_name, password) VALUES (DEFAULT, 'jaan', '123');
-INSERT INTO public."user" (id, user_name, password) VALUES (DEFAULT, 'indrek', '123');
+INSERT INTO public.role (id, name) VALUES (DEFAULT, 'admin');
+INSERT INTO public.role (id, name) VALUES (DEFAULT, 'guest');
+INSERT INTO public.role (id, name) VALUES (DEFAULT, 'user');
+
+INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'kristiina', '123', 1);
+INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'jaan', '123', 2);
+INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'indrek', '123', 3);
 
 INSERT INTO public.contact (id, e_mail, mobile, first_name, last_name, user_id) VALUES (DEFAULT, 'kristiinakurvits@gmail.com', '+37211111', 'Kristiina', 'Kurvits', 1);
 INSERT INTO public.contact (id, e_mail, mobile, first_name, last_name, user_id) VALUES (DEFAULT, 'jaan.varts@gmail.com', '+37222222', 'Jaan', 'Varts', 2);
 INSERT INTO public.contact (id, e_mail, mobile, first_name, last_name, user_id) VALUES (DEFAULT, 'indrek.turi@gmail.com', '+37233333', 'Indrek', 'Turi', 3);
-
-INSERT INTO public.role (id, name) VALUES (DEFAULT, 'admin');
-INSERT INTO public.role (id, name) VALUES (DEFAULT, 'guest');
-INSERT INTO public.role (id, name) VALUES (DEFAULT, 'user');
 
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Juurviljad');
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Köögiviljad');
@@ -32,9 +32,9 @@ INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is
 INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
 INSERT INTO public.product (id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
-INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'P', '2022-09-08 15:32:25.000000');
-INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'C', '2022-09-08 15:32:49.000000');
-INSERT INTO public."order" (id, status, date_time) VALUES (DEFAULT, 'F', '2022-09-08 15:32:50.000000');
+INSERT INTO public.order (id, status, date_time) VALUES (DEFAULT, 'P', '2022-09-08 15:32:25.000000');
+INSERT INTO public.order (id, status, date_time) VALUES (DEFAULT, 'C', '2022-09-08 15:32:49.000000');
+INSERT INTO public.order (id, status, date_time) VALUES (DEFAULT, 'F', '2022-09-08 15:32:50.000000');
 
 INSERT INTO public.product_category (id, product_id, category_id) VALUES (DEFAULT, 1, 2);
 INSERT INTO public.product_category (id, product_id, category_id) VALUES (DEFAULT, 2, 3);

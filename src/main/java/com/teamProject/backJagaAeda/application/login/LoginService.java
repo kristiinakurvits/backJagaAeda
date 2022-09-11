@@ -20,7 +20,7 @@ public class LoginService {
     public LogInResponse logIn(LogInRequest request) {
         Optional<User> user = userService.getUser(request.getUserName(), request.getPassword());
         // getValid user validationservice abil, kui see ei eksisteeri, tuleb visata error, kui l'heb edasi, sisi tagastan loginRespose, kus on userilt ID sisse m2pitud
-        return userService(request);
+        return null;
     }
 
     public LogInResponse register(RegisterRequest request) {

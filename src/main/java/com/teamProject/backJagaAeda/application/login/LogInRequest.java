@@ -1,7 +1,6 @@
 package com.teamProject.backJagaAeda.application.login;
 
 import lombok.Data;
-import lombok.NonNull;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
