@@ -21,4 +21,10 @@ public class UserService {
         ValidationService.validateUserExists(user);
         return user.get();
     }
+
+    public User getValidUser(Integer userId) {
+        Optional<User> user = userRepository.findById(userId);
+        ValidationService.validateUserExists(user);
+        return user.get();
+    }
 }

@@ -8,9 +8,6 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface UserMapper {
 
-
-    User loginRequestToUser(LogInRequest request);
-
     @Mapping(source = "id", target= "userId")
     @Mapping(source = "role.id", target= "roleId")
     LogInResponse userToLogInResponse(User user);
