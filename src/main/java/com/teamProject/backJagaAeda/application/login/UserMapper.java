@@ -13,5 +13,5 @@ public interface UserMapper {
 
     @Mapping(source = "id", target= "userId")
     @Mapping(source = "role.id", target= "roleName")
-    LogInResponse userExistsToLogInResponse(User userExsists);
+    LogInResponse userExistsToLogInResponse(User userExists);
 }

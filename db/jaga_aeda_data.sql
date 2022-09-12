@@ -3,7 +3,7 @@ INSERT INTO public.role (id, name) VALUES (DEFAULT, 'guest');
 INSERT INTO public.role (id, name) VALUES (DEFAULT, 'user');
 
 INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'kristiina', '123', 1);
-INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'jaan', '123', 2);
+INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'jaan', '123', 3);
 INSERT INTO public.user (id, user_name, password, role_id) VALUES (DEFAULT, 'indrek', '123', 3);
 
 INSERT INTO public.contact (id, e_mail, mobile, first_name, last_name, user_id) VALUES (DEFAULT, 'kristiinakurvits@gmail.com', '+37211111', 'Kristiina', 'Kurvits', 1);
