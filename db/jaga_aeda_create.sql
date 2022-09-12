@@ -105,7 +105,7 @@ CREATE TABLE "user" (
                         id serial  NOT NULL,
                         user_name varchar(255)  NOT NULL,
                         password varchar(255)  NOT NULL,
-                        role_id int  NOT NULL,
+                        role_id int,
                         CONSTRAINT user_ak_1 UNIQUE (user_name) NOT DEFERRABLE  INITIALLY IMMEDIATE,
                         CONSTRAINT user_pk PRIMARY KEY (id)
 );
