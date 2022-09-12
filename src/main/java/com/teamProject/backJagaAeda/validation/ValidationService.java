@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.validation;
 
 
+import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.infrastructure.exception.BusinessException;
 import com.teamProject.backJagaAeda.infrastructure.exception.DataNotFoundException;
 
@@ -8,8 +9,8 @@ import java.util.Optional;
 
 public class ValidationService {
 
-//    public static final String ACCOUNT_NOT_EXISTS = "Sellist kontot ei eksisteeri";
-//    public static final String CUSTOMER_NOT_EXISTS = "Sellist klienti ei eksisteeri";
+    public static final String INCORRECT_LOGIN_DETAILS = "Kasutajanimi või parool on vale";
+//   public static final String CUSTOMER_NOT_EXISTS = "Sellist klienti ei eksisteeri";
 //
 //
 //    public static final String INSUFFICIENT_FUNDS = "Kontol pole piisavalt vahendeid tehingu sooritamiseks";
@@ -18,13 +19,14 @@ public class ValidationService {
 //
 //    public static final String DEPOSIT_OVER_LIMIT = "Deposiidi limiit on ületatud";
 //    public static final String WITHDRAW_OVER_LIMIT = "Raha väljavõtmise limiit on ületatud";
-//
-//    public static void validateCustomerExists(Optional<Customer> customer, Integer customerId) {
-//        if (customer.isEmpty()) {
-//            throw new DataNotFoundException(CUSTOMER_NOT_EXISTS, "Sellist klienti ID'ga " + customerId + " ei leitud");
-//        }
-//    }
-//
+
+
+    public static void validateUserExists(Optional<User> user) {
+        if (user.isEmpty()) {
+            throw new BusinessException(INCORRECT_LOGIN_DETAILS, "Kasutajanimi või parool on vale. Proovi uuesti");
+        }
+    }
+
 //    public static void validateAccountExists(Optional<Account> account, Integer accountId) {
 //        if (account.isEmpty()) {
 //            throw new DataNotFoundException(ACCOUNT_NOT_EXISTS, "Sellist kontot ID'ga " + accountId + " ei leitud");

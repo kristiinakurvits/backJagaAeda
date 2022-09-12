@@ -11,16 +11,18 @@ import javax.annotation.Resource;
 public class LogInController {
 
     @Resource
-    private LoginService loginService;
+    private LogInService loginService;
+
 
     @PostMapping("/sisene")
     @Operation(summary = "Sisse logimine")
     public LogInResponse logIn(@RequestBody LogInRequest request) {
-
         return loginService.logIn(request);
     }
 
-//    @PostMapping("/registreeru")
-//    @Operation(summary = "Uue kasutaja lisamine")
-//    public UserResponse
+    @PostMapping("/registreeru")
+    @Operation(summary = "Uue kasutaja loomine")
+    public LogInResponse register(@RequestBody RegisterRequest request) {
+        return loginService.register(request);
+    }
 }

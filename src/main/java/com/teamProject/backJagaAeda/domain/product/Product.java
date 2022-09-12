@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.domain.product;
 
 import com.teamProject.backJagaAeda.domain.product.MeasureUnit;
+import com.teamProject.backJagaAeda.domain.user.User;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "seller_user_id", nullable = false)
+    private User sellerUser;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -41,5 +50,7 @@ public class Product {
 
     @Column(name = "status", nullable = false, length = 1)
     private String status;
+
+
 
 }
