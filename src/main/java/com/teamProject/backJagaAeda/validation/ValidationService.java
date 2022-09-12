@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class ValidationService {
 
-    public static final String USER_NOT_EXISTS = "Sellist kasutajat ei leitud";
+    public static final String INCORRECT_LOGIN_DETAILS = "Kasutajanimi või parool on vale";
 //   public static final String CUSTOMER_NOT_EXISTS = "Sellist klienti ei eksisteeri";
 //
 //
@@ -21,9 +21,9 @@ public class ValidationService {
 //    public static final String WITHDRAW_OVER_LIMIT = "Raha väljavõtmise limiit on ületatud";
 
 
-    public static void validateUserExists(Optional<User> user, Integer userId) {
+    public static void validateUserExists(Optional<User> user) {
         if (user.isEmpty()) {
-            throw new DataNotFoundException(USER_NOT_EXISTS, "Sellist kasutajat ei leitud");
+            throw new BusinessException(INCORRECT_LOGIN_DETAILS, "Kasutajanimi või parool on vale. Proovi uuesti");
         }
     }
 

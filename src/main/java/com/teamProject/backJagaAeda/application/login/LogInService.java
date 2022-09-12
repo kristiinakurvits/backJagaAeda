@@ -5,7 +5,6 @@ import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Optional;
 
 @Service
 public class LogInService {
@@ -16,17 +15,13 @@ public class LogInService {
     @Resource
     private UserService userService;
 
-    @Resource
-    private LogInResponse logInResponse;
-
 
     public LogInResponse logIn(LogInRequest request) {
-        Optional<User> user = userService.getUser(request.getUserName(), request.getPassword());
-        LogInResponse logInResponse = userMapper.loginRequestToUser(getUser());
-        User user = userService.getValidUser(request.getUserId());
-        return logInResponse;
+        User user = userService.getValidUser(request.getUserName(), request.getPassword());
+        return userMapper.userToLogInResponse(user);
 
     }
+
     public LogInResponse register(RegisterRequest request) {
         return null;
     }
