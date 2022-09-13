@@ -1,6 +1,6 @@
 package com.teamProject.backJagaAeda.domain.user;
 
-import com.teamProject.backJagaAeda.application.login.*;
+import com.teamProject.backJagaAeda.application.login.UserMapper;
 import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +30,11 @@ public class UserService {
 //        user.setContact(contact);
 //        userRepository.save(user);
 //        return userMapper.userToUserResponse;
+    }
+
+    public User getValidUser(Integer userId) {
+        Optional<User> user = userRepository.findById(userId);
+        ValidationService.validateUserExists(user);
+        return user.get();
     }
 }

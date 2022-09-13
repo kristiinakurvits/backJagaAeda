@@ -35,6 +35,11 @@ public class LogInService {
 
     }
 
+    public LogInResponse register(RegisterRequest request) {
+        return null;
+    }
+
+
 
 
 }
