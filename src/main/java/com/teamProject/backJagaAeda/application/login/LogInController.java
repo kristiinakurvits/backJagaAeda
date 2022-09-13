@@ -25,4 +25,11 @@ public class LogInController {
     public LogInResponse register(@RequestBody RegisterRequest request) {
         return loginService.register(request);
     }
+
+
+    // TODO: 13.09.2022 Lisa userile puuduolevad väljad 
+//    @PostMapping("account")
+//    @Operation(summary = "Lisab kliendi kontole puuduolevad andmed")
+//    public void addAccountInfo(@RequestBody)
+
 }
