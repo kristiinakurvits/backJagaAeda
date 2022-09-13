@@ -10,7 +10,7 @@ import java.time.LocalDate;
  */
 @Data
 public class ProductInfo implements Serializable {
-    private Integer id;
+    private Integer productId;
     private String name;
     private String description;
     private Integer quantity;

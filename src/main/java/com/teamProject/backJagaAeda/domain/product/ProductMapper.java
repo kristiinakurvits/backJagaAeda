@@ -7,7 +7,7 @@ import org.mapstruct.ReportingPolicy;
 import java.time.Instant;
 import java.util.List;
 
-@Mapper (unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", imports = Instant.class)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", imports = Instant.class)
 public interface ProductMapper {
 
     @Mapping(source = "categoryId", target = "category.id")
@@ -19,11 +19,11 @@ public interface ProductMapper {
     @Mapping(source = "measureUnit.id", target = "measureUnitId")
     ProductResponse productToProductResponse(Product product);
 
-    @Mapping(source = "sellerUser.id" , target = "sellerUserId")
-    @Mapping(source = "category.id" , target = "categoryId")
-    @Mapping(source = "measureUnit.id" , target = "measureUnitId")
-    ProductInfo mapProductsToProductInfos(Product products);
+    @Mapping(source = "id", target = "productId")
+    @Mapping(source = "sellerUser.id", target = "sellerUserId")
+    @Mapping(source = "category.id", target = "categoryId")
+    @Mapping(source = "measureUnit.id", target = "measureUnitId")
+    ProductInfo productsToProductInfo(Product product);
 
-    //    @Mapping(target = "id", ignore = true)
     List<ProductInfo> productsToProductInfos(List<Product> products);
 }
