@@ -21,11 +21,4 @@ public class ProductController {
         return productService.addProduct(request);
     }
 
-    @GetMapping("/otsiaiast")
-    @Operation(summary = "Leiab kõik tooted")
-    public List<ProductInfo> getAllProducts() {
-        return productService.getAllProducts();
-    }
-
-
 }

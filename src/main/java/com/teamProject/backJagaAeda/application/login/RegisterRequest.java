@@ -14,9 +14,10 @@ public class RegisterRequest implements Serializable {
     @NotNull
     private String eMail;
     @NotNull
+    private String mobile;
+    @NotNull
     private String userName;
     @NotNull
     private String password;
-    @NotNull
-    private String mobile;
+
 }

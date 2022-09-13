@@ -14,10 +14,5 @@ public class BusinessService {
     @Resource
     private ProductMapper productMapper;
 
-    public List<ProductInfo> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
-        return (List<ProductInfo>) productMapper.mapProductsToProductInfos(products);
-    }
-
 
 }

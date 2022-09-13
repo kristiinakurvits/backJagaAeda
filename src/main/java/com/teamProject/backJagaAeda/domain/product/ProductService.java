@@ -33,8 +33,8 @@ public class ProductService {
 
     }
 
-    public List<ProductInfo> getAllProducts() {
-        List<Product> products =
-//        return productRepository.findAll();
-    }
+//    public List<ProductInfo> getAllProducts() {
+//        List<Product> products =
+////        return productRepository.findAll();
+//    }
 }

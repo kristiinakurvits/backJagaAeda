@@ -14,18 +14,9 @@ public interface UserMapper {
     @Mapping(source = "role.id", target = "roleId")
     LogInResponse userToLogInResponse(User user);
 
+    @Mapping(source = "userName", target = "userName")
+    @Mapping(source = "password", target = "password")
     User registerRequestToUser(RegisterRequest request);
-
-
-    @Mapping(source = "id", target = "userId")
-    @Mapping(source = "contact.id", target = "contactId")
-    @Mapping(source = "contact.firstName", target = "firstName")
-    @Mapping(source = "contact.lastName", target = "lastName")
-    @Mapping(source = "contact.eMail", target = "eMail")
-    @Mapping(source = "contact.userName", target = "userName")
-    @Mapping(source = "contact.password", target = "password")
-    @Mapping(source = "contact.mobile", target = "mobile")
-    ContactInfo userToContactInfo(User user);
 
 
 }

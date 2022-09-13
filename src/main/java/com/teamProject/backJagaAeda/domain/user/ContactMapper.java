@@ -12,12 +12,9 @@ public interface ContactMapper {
     @Mapping(source = "id", target = "contactId")
     ContactInfo contactToContactInfo(Contact contact);
 
-    //    List<ContactInfo> contactsToContactInfos(List<Contact> contacts);
-    @Mapping(source = "userName", target = "user.userName")
-    @Mapping(source = "password", target = "user.password")
-    Contact RegisterRequestToContact(RegisterRequest request);
-
-
-
-//    Contact userRequestToContact(RegisterRequest request);
+    @Mapping(source = "firstName", target = "firstName")
+    @Mapping(source = "lastName", target = "lastName")
+//    @Mapping(source = "eMail", target = "eMail")
+    @Mapping(source = "mobile", target = "mobile")
+    Contact registerRequestToContact(RegisterRequest request);
 }

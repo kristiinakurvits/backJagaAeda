@@ -18,8 +18,9 @@ public class ContactService {
     @Resource
     private ContactRepository contactRepository;
 
-    public RegisterResponse addContact(RegisterRequest request) {
-        Contact contact = contactMapper.RegisterRequestToContact(request);
+
+    public Contact registerRequestToContact(RegisterRequest request) {
+        Contact contact = contactMapper.registerRequestToContact(request);
         contactRepository.save(contact);
         return contact;
     }

@@ -3,7 +3,6 @@ package com.teamProject.backJagaAeda.validation;
 
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.infrastructure.exception.BusinessException;
-import com.teamProject.backJagaAeda.infrastructure.exception.DataNotFoundException;
 
 import java.util.Optional;
 
@@ -24,6 +23,12 @@ public class ValidationService {
     public static void validateUserExists(Optional<User> user) {
         if (user.isEmpty()) {
             throw new BusinessException(INCORRECT_LOGIN_DETAILS, "Kasutajanimi või parool on vale. Proovi uuesti");
+        }
+    }
+
+    public static void validateUserNameExists(boolean userExists, String userName) {
+        if (userExists) {
+            throw new BusinessException("Kasutajanimi on juba hõivatud", "Kasutajanimi " + userName + " on juba kasutusel. Vali mõni teine kasutajanimi");
         }
     }
 
