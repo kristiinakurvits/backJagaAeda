@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class ProductRequest implements Serializable {
     private Integer userId;
     private Integer categoryId;
+    private Integer regionName;
     private String name;
     private String description;
     private Integer quantity;

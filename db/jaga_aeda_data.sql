@@ -28,15 +28,15 @@ INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitu
 INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 2, 2, 'Käbi talu', null, null, 'Talutee, Tartu');
 INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 3, 3, 'Tamme talu', null, null, 'Tammetee, Lihula');
 
-INSERT INTO public.product (id, seller_user_id, category_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 1,  'Vaarikas', 'Värsked', 4, 1, true, null, '2022-09-12', 'A');
-INSERT INTO public.product (id, seller_user_id, category_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 2,  'Maasikad', 'Värsked', 4, 1, true, null, '2022-09-08', 'A');
-INSERT INTO public.product (id, seller_user_id, category_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 3, 2,  'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
-INSERT INTO public.product (id, seller_user_id, category_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 1,  'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
+INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 1, 2,'Vaarikas', 'Värsked', 4, 1, true, null, '2022-09-12', 'A');
+INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 2, 2,'Maasikad', 'Värsked', 4, 1, true, null, '2022-09-08', 'A');
+INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 3, 2, 2,'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
+INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 1, 2,'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
 INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'P', '2022-09-08 15:32:25.000000');
 INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'C', '2022-09-08 15:32:49.000000');
 INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'F', '2022-09-08 15:32:50.000000');
 
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 1, 2);
-INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 3, 1);
+INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 2, 3);
 INSERT INTO public.product_order (id, order_id, product_id) VALUES (DEFAULT, 2, 3);

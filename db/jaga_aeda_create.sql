@@ -7,10 +7,11 @@ CREATE SCHEMA public
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-12 10:17:32.077
+-- Last modification date: 2022-09-13 12:37:29.18
 
 -- tables
 -- Table: category
+
 CREATE TABLE category (
                           id serial  NOT NULL,
                           name varchar(255)  NOT NULL,
@@ -62,6 +63,7 @@ CREATE TABLE product (
                          id serial  NOT NULL,
                          seller_user_id int  NOT NULL,
                          category_id int  NOT NULL,
+                         location_id int  NOT NULL,
                          name varchar(255)  NOT NULL,
                          description varchar(510)  NULL,
                          quantity int  NOT NULL,
@@ -100,7 +102,7 @@ CREATE TABLE "user" (
                         id serial  NOT NULL,
                         user_name varchar(255)  NOT NULL,
                         password varchar(255)  NOT NULL,
-                        role_id int,
+                        role_id int  NOT NULL,
                         CONSTRAINT user_ak_1 UNIQUE (user_name) NOT DEFERRABLE  INITIALLY IMMEDIATE,
                         CONSTRAINT user_pk PRIMARY KEY (id)
 );
@@ -142,6 +144,14 @@ ALTER TABLE "order" ADD CONSTRAINT order_user
 ALTER TABLE product ADD CONSTRAINT product_category
     FOREIGN KEY (category_id)
         REFERENCES category (id)
+        NOT DEFERRABLE
+            INITIALLY IMMEDIATE
+;
+
+-- Reference: product_location (table: product)
+ALTER TABLE product ADD CONSTRAINT product_location
+    FOREIGN KEY (location_id)
+        REFERENCES location (id)
         NOT DEFERRABLE
             INITIALLY IMMEDIATE
 ;

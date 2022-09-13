@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.domain.product;
 
 import com.teamProject.backJagaAeda.domain.product.MeasureUnit;
+import com.teamProject.backJagaAeda.domain.user.Location;
 import com.teamProject.backJagaAeda.domain.user.User;
 import lombok.Data;
 import lombok.Getter;
@@ -26,6 +27,10 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -50,7 +55,6 @@ public class Product {
 
     @Column(name = "status", nullable = false, length = 1)
     private String status;
-
 
 
 }
