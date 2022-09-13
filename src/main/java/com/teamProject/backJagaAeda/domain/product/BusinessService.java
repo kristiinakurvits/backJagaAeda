@@ -10,11 +10,14 @@ public class BusinessService {
     @Resource
     private ProductService productService;
 
+    @Resource
+    private ProductMapper productMapper;
+
     public List<ProductInfo> findProducts(Integer categoryId) {
         return productService.findProducts(categoryId);
     }
+//    public List<ProductInfo> getAllProducts() {
+//        List<Product> products = productService.getAllProducts();
+//        return productMapper.mapProductsToProductInfos(products);
+//    }
 }
-
-//    public List<ProductInfo> findProducts(Integer categoryId) {
-//        List<ProductInfo> productInfos = productService.findProducts(categoryId);
-//        return productInfos ;

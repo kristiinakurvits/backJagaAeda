@@ -19,4 +19,11 @@ public class ProductInfo implements Serializable {
     private Boolean isActive;
     private LocalDate dateAdded;
     private String status;
+    private Integer sellerUserId;
+    private Integer sellerUserRoleId;
+    private String sellerUserRoleName;
+    private String sellerUserUserName;
+    private String sellerUserPassword;
+    private Integer categoryId;
+    private String categoryName;
 }
