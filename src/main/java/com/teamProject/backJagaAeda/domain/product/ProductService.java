@@ -24,12 +24,14 @@ public class ProductService {
 
     public List<ProductInfo> findProducts(Integer categoryId) {
         List<Product> products = productRepository.findProductsBy(categoryId);
-        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
-        for (ProductInfo productInfo : productInfos) {
-            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
-            productInfo.setRegionName(region.getCounty());
-        }
-        return productInfos;
+        return productMapper.productsToProductInfos(products);
+
+//        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
+//        for (ProductInfo productInfo : productInfos) {
+//            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
+//            productInfo.setRegionName(region.getCounty());
+//        }
+//        return productInfos;
     }
 
     public ProductResponse addProduct(ProductRequest request) {
