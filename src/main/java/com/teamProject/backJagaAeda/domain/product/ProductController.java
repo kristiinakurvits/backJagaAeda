@@ -15,6 +15,9 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
+    @Resource
+    private BusinessService businessService;
+
     @PostMapping("/jagaaeda")
     @Operation(summary = "Uue kuulutuse lisamine")
     public ProductResponse addProduct(@RequestBody ProductRequest request) {
@@ -24,7 +27,7 @@ public class ProductController {
     @GetMapping("/otsiaiast")
     @Operation(summary = "Leiab kõik tooted")
     public List<ProductInfo> getAllProducts() {
-        return productService.getAllProducts();
+        return businessService.getAllProducts();
     }
 
 

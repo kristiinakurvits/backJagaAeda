@@ -16,7 +16,7 @@ public class BusinessService {
 
     public List<ProductInfo> getAllProducts() {
         List<Product> products = productService.getAllProducts();
-        return (List<ProductInfo>) productMapper.mapProductsToProductInfos(products);
+        return productMapper.mapProductsToProductInfos(products);
     }
 
 
