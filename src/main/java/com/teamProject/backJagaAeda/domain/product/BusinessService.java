@@ -16,8 +16,4 @@ public class BusinessService {
     public List<ProductInfo> findProducts(Integer categoryId) {
         return productService.findProducts(categoryId);
     }
-//    public List<ProductInfo> getAllProducts() {
-//        List<Product> products = productService.getAllProducts();
-//        return productMapper.mapProductsToProductInfos(products);
-//    }
 }
