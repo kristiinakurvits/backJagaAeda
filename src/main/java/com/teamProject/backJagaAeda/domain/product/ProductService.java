@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class ProductService {
+
 
     @Resource
     private ProductMapper productMapper;
@@ -31,5 +33,8 @@ public class ProductService {
 
     }
 
-    //TODO: lisa siia juurde productrepository ja kuidas saada seda kätte productservicest, arvestades, et meil on seda erinevates kohtades
+    public List<ProductInfo> getAllProducts() {
+        List<Product> products =
+//        return productRepository.findAll();
+    }
 }

@@ -16,4 +16,9 @@ public interface ProductMapper {
     @Mapping(source = "category.id", target = "categoryId")
     @Mapping(source = "measureUnit.id", target = "measureUnitId")
     ProductResponse productToProductResponse(Product product);
+
+    @Mapping(source = "sellerUser.id" , target = "sellerUserId")
+    @Mapping(source = "category.id" , target = "categoryId")
+    @Mapping(source = "measureUnit.id" , target = "measureUnitId")
+    ProductInfo mapProductsToProductInfos(Product products);
 }
