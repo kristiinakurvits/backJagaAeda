@@ -1,8 +1,8 @@
 package com.teamProject.backJagaAeda.application.login;
 
-import com.teamProject.backJagaAeda.domain.user.User;
-import com.teamProject.backJagaAeda.domain.user.UserService;
+import com.teamProject.backJagaAeda.domain.user.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -13,19 +13,29 @@ public class LogInService {
     private UserMapper userMapper;
 
     @Resource
+    private ContactMapper contactMapper;
+
+    @Resource
     private UserService userService;
+
+    @Resource
+    private ContactService contactService;
+
+
+    @Transactional
+    public RegisterResponse registerNewUser(RegisterRequest request) {
+        User user = userService.createAndAddNewUser(request);
+        Contact contact = contactService.registerRequestToContact(request);
+        contact.setUser(user);
+        return null;
+    }
 
 
     public LogInResponse logIn(LogInRequest request) {
         User user = userService.getValidUser(request.getUserName(), request.getPassword());
         return userMapper.userToLogInResponse(user);
+
     }
-
-    public LogInResponse register(RegisterRequest request) {
-        return null;
-    }
-
-
 
 }
 

@@ -22,8 +22,8 @@ public class LogInController {
 
     @PostMapping("/registreeru")
     @Operation(summary = "Uue kasutaja loomine")
-    public LogInResponse register(@RequestBody RegisterRequest request) {
-        return loginService.register(request);
+    public RegisterResponse registerNewUser(@RequestBody RegisterRequest request) {
+        return loginService.registerNewUser(request);
     }
 
 

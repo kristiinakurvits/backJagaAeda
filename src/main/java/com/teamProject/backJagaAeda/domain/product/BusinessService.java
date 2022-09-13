@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class BusinessService {
 
@@ -16,4 +17,5 @@ public class BusinessService {
     public List<ProductInfo> findProducts(Integer categoryId) {
         return productService.findProducts(categoryId);
     }
+
 }
