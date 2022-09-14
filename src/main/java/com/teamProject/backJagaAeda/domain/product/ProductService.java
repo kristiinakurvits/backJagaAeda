@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -37,27 +38,20 @@ public class ProductService {
         return productMapper.productToProductResponse(savedProduct);
     }
 
-//    public List<ProductInfo> findRecentProducts(Integer productId) {
-//
-//
-//
-//    }
+    public List<ProductInfo> findAllProducts() {
+        List<Product> products = productRepository.findAllProducts();
+        return productMapper.productsToProductInfos(products);
+    }
 
-    public List<Product> getAllProducts() {
-        return productRepository.findAllProducts();
+    public List<ProductInfo> findRecentProducts() {
+        List<Product> products = productRepository.findAllProducts();
+        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
+        return productInfos.stream().limit(5).collect(Collectors.toList());
     }
 
 
-//    public List<ProductInfo> findAllProducts(Integer productId) {
-//        List<Product> products = productRepository.findProductById(productId);
-//        return productMapper.productsToProductInfos(products);
-//        return null;
-//    }
 }
 
-//        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
-//        for (ProductInfo productInfo : productInfos) {
-//            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
-//            productInfo.setRegionName(region.getCounty());
-//        }
-//        return productInfos;
+
+
+

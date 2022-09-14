@@ -31,15 +31,15 @@ public class ProductController {
 
     @GetMapping("/all")
     @Operation(summary = "Leiab kõik tooted")
-    public List<ProductInfo> getAllProducts() {
-        return businessService.getAllProducts();
+    public List<ProductInfo> findAllProducts() {
+        return businessService.findAllProducts();
     }
 
-//    @GetMapping("/recent")
-//    @Operation(summary = "Leiab viimati lisatud tooted")
-//    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
-//        return businessService.findRecentProducts(dateAdded);
-//    }
+    @GetMapping("/recent")
+    @Operation(summary = "Leiab 5 viimati lisatud toodet")
+    public List<ProductInfo> findRecentProducts() {
+        return businessService.findRecentProducts();
+    }
 
 
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class BusinessService {
 
@@ -14,18 +15,15 @@ public class BusinessService {
     private ProductMapper productMapper;
 
     public List<ProductInfo> findProducts(Integer categoryId) {
-
         return productService.findProducts(categoryId);
     }
 
-    public List<ProductInfo> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
-        return productMapper.productsToProductInfos(products);
+    public List<ProductInfo> findAllProducts() {
+        return productService.findAllProducts();
 
     }
 
-
-//    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
-//        return productService.findRecentProducts(dateAdded);
-//    }
+    public List<ProductInfo> findRecentProducts() {
+        return productService.findRecentProducts();
+    }
 }
