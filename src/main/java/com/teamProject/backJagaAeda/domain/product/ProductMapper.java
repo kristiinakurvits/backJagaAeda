@@ -34,13 +34,13 @@ public interface ProductMapper {
 //    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     @Mapping(target = "imageBase64", ignore = true)
     @Mapping(source = "location.id", target= "regionName")
+    @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
+
+    List<ProductInfo> productsToProductInfos(List<Product> products);
 
     @Named("byteArrayToString")
     static String byteArrayToString(byte[] imageBase64) {
         return new String(imageBase64);
     }
-
-
-    List<ProductInfo> productsToProductInfos(List<Product> products);
 }

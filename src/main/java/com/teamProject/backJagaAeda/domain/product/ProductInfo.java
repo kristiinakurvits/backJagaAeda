@@ -16,4 +16,5 @@ public class ProductInfo implements Serializable {
     private String measureUnit;
     private String imageBase64;
     private String regionName;
+    private Integer categoryId;
 }

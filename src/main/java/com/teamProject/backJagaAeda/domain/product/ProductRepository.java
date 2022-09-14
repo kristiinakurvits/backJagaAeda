@@ -12,4 +12,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("select p from Product p where upper(p.name) = upper(?1) order by p.dateAdded DESC")
     List<Product> findProductByDate(String name);
+
+    @Query("select p from Product p where p.location.region.id = ?1 order by p.dateAdded DESC, p.isActive DESC")
+    List<Product> findProductsByRegionId(Integer regionId);
 }

@@ -18,4 +18,7 @@ public class BusinessService {
         return productService.findProducts(categoryId);
     }
 
+    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
+        return productService.findProductsByRegionId(regionId);
+    }
 }

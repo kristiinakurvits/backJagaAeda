@@ -44,5 +44,12 @@ public class ProductService {
         Product savedProduct = productRepository.save(product);
         return productMapper.productToProductResponse(savedProduct);
     }
+
+    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
+        List<Product> products = productRepository.findProductsByRegionId(regionId);
+        return productMapper.productsToProductInfos(products);
+    }
+
 }
+
 
