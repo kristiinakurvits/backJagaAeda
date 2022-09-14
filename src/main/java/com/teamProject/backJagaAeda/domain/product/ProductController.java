@@ -21,6 +21,7 @@ public class ProductController {
     public List<ProductInfo> findProducts(Integer categoryId) {
         return businessService.findProducts(categoryId);
     }
+
     @PostMapping("/new")
     @Operation(summary = "Uue kuulutuse lisamine")
     public ProductResponse addProduct(@RequestBody ProductRequest request) {
