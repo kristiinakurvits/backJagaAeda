@@ -25,4 +25,12 @@ public class BusinessService {
     public List<ProductInfo> findProductsByUserId(Integer userId) {
         return productService.findProductsByUserId(userId);
     }
+
+    public List<ProductInfo> findAllProducts() {
+        return productService.findAllProducts();
+    }
+
+    public List<ProductInfo> findRecentProducts() {
+        return productService.findRecentProducts();
+    }
 }
