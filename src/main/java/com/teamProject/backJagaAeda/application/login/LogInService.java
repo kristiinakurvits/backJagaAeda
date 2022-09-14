@@ -27,7 +27,7 @@ public class LogInService {
         User user = userService.createAndAddNewUser(request);
         Contact contact = contactService.registerRequestToContact(request);
         contact.setUser(user);
-        return null;
+        return userMapper.userToRegisterResponse(user);
     }
 
 

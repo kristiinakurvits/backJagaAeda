@@ -19,4 +19,7 @@ public interface UserMapper {
     User registerRequestToUser(RegisterRequest request);
 
 
+    @Mapping(source = "id", target = "userId")
+    @Mapping(source = "role.id", target = "roleId")
+    RegisterResponse userToRegisterResponse(User user);
 }
