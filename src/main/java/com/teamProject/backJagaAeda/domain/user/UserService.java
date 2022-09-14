@@ -15,12 +15,10 @@ public class UserService {
     private UserMapper userMapper;
 
     @Resource
-    private ContactMapper contactMapper;
-
-    @Resource
     private UserRepository userRepository;
     @Resource
     private ContactRepository contactRepository;
+
 
     public User getValidUser(String userName, String password) {
         Optional<User> user = userRepository.findByUserNameAndPassword(userName, password);
@@ -35,20 +33,10 @@ public class UserService {
     }
 
     public void updateContactDetail(ContactInfo request) {
-        Contact contact = contactMapper.contactInfoToContact(request);
-        User user = getValidUser(request.getUserId());
-        contact.setUser(user);
+        Contact contact = contactRepository.findById(request.getContactId()).get();
         contact.setFirstName(request.getFirstName());
         contact.setLastName(request.getLastName());
         contact.setMobile(request.getMobile());
-        //Location location = contactMapper.locationInfoToContact(contactId)
-        Location location = contactMapper.contactInfoToLocation(request);
-        location.setName();
-
-
         contactRepository.save(contact);
-
-        // TODO: 13.09.2022 ContacInfo 'Dto'
-        // TODO: 13.09.2022 tuleb saaata nii
     }
 }

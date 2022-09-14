@@ -29,16 +29,14 @@ public class LogInController {
         return loginService.register(request);
     }
 
-
-    // TODO: 13.09.2022 Lisa userile puuduolevad väljad
-    // TODO: 13.09.2022
     @PatchMapping("/contact")
-    @Operation(summary = "Lisa kliendi profiilile puuduolevad kontaktandmed")
+    @Operation(summary = "Lisa kliendi profiilile puuduolev nimi, perekonnanimi, mobiili number")
     public void updateContactDetail(@RequestBody ContactInfo request) {
         userService.updateContactDetail(request);
     }
 
-//    public ProductResponse addProduct(@RequestBody ProductRequest request) {
-//        return productService.addProduct(request);
 
+    // TODO: 14.09.2022 Display profile information by user_ID (profileView)
+    // TODO: 14.09.2022 Save contact/address (save address/addresses in profileView
+    // TODO: 14.09.2022 Update contact/address (update address/addresses in profileWiev
 }
