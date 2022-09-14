@@ -1,6 +1,5 @@
 package com.teamProject.backJagaAeda.domain.product;
 
-import com.teamProject.backJagaAeda.domain.user.Region;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;
@@ -25,13 +24,6 @@ public class ProductService {
     public List<ProductInfo> findProducts(Integer categoryId) {
         List<Product> products = productRepository.findProductsBy(categoryId);
         return productMapper.productsToProductInfos(products);
-
-//        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
-//        for (ProductInfo productInfo : productInfos) {
-//            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
-//            productInfo.setRegionName(region.getCounty());
-//        }
-//        return productInfos;
     }
 
     public ProductResponse addProduct(ProductRequest request) {
@@ -43,6 +35,27 @@ public class ProductService {
         product.setStatus("A");
         Product savedProduct = productRepository.save(product);
         return productMapper.productToProductResponse(savedProduct);
+    }
+
+    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
+        List<Product> products = productRepository.findProductByDate(dateAdded);
+        //kas pean mappima Stringiks LocalDate?
+        for (ProductInfo productInfo : productInfos) {
+            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
+            productInfo.setRegionName(region.getCounty());
+        }
+        return productInfos;
+        return null;
+    }
+
+    public List<ProductInfo> findAllProducts(Integer productId) {
+        //        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
+//        for (ProductInfo productInfo : productInfos) {
+//            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
+//            productInfo.setRegionName(region.getCounty());
+//        }
+//        return productInfos;
+        return null;
     }
 }
 
