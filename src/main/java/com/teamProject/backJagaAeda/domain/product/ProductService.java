@@ -37,25 +37,27 @@ public class ProductService {
         return productMapper.productToProductResponse(savedProduct);
     }
 
-    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
-        List<Product> products = productRepository.findProductByDate(dateAdded);
-        //kas pean mappima Stringiks LocalDate?
-        for (ProductInfo productInfo : productInfos) {
-            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
-            productInfo.setRegionName(region.getCounty());
-        }
-        return productInfos;
-        return null;
+//    public List<ProductInfo> findRecentProducts(Integer productId) {
+//
+//
+//
+//    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAllProducts();
     }
 
-    public List<ProductInfo> findAllProducts(Integer productId) {
-        //        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
+
+//    public List<ProductInfo> findAllProducts(Integer productId) {
+//        List<Product> products = productRepository.findProductById(productId);
+//        return productMapper.productsToProductInfos(products);
+//        return null;
+//    }
+}
+
+//        List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
 //        for (ProductInfo productInfo : productInfos) {
 //            Region region = productService.findRegionByUserId(productInfo.getSellerUserId());
 //            productInfo.setRegionName(region.getCounty());
 //        }
 //        return productInfos;
-        return null;
-    }
-}
-

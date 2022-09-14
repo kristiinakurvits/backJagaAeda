@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -32,14 +31,15 @@ public class ProductController {
 
     @GetMapping("/all")
     @Operation(summary = "Leiab kõik tooted")
-    public List<ProductInfo> findAllProducts(Integer productId) {
-        return businessService.findAllProducts(productId);
+    public List<ProductInfo> getAllProducts() {
+        return businessService.getAllProducts();
     }
-    @GetMapping("/recent")
-    @Operation(summary = "Leiab viimati lisatud tooted")
-    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
-        return businessService.findRecentProducts(dateAdded);
-    }
+
+//    @GetMapping("/recent")
+//    @Operation(summary = "Leiab viimati lisatud tooted")
+//    public List<ProductInfo> findRecentProducts(LocalDate dateAdded) {
+//        return businessService.findRecentProducts(dateAdded);
+//    }
 
 
 }
