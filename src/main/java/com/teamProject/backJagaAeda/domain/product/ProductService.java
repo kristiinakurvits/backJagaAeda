@@ -50,6 +50,10 @@ public class ProductService {
         return productMapper.productsToProductInfos(products);
     }
 
+    public List<ProductInfo> findProductsByUserId(Integer userId) {
+        List<Product> products = productRepository.findProductsByUserId(userId);
+        return productMapper.productsToProductInfos(products);
+    }
 }
 
 

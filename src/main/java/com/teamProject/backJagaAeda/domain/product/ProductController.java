@@ -34,6 +34,11 @@ public class ProductController {
         return businessService.findProductsByRegionId(regionId);
     }
 
+    @GetMapping("/user/products")
+    @Operation(summary = "Leiab tooted kasutaja järgi")
+    public List<ProductInfo> findProductsByUserId(Integer userId) {
+        return businessService.findProductsByUserId(userId);
+    }
 }
 
 
