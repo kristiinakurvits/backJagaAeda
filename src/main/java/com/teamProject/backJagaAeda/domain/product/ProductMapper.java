@@ -37,6 +37,7 @@ public interface ProductMapper {
     @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
 
+
     List<ProductInfo> productsToProductInfos(List<Product> products);
 
     @Named("byteArrayToString")
