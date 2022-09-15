@@ -10,8 +10,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.teamProject.backJagaAeda.application.Status.AVAILABLE;
+
 @Service
 public class ProductService {
+
 
     @Resource
     private ProductRepository productRepository;
@@ -24,7 +27,7 @@ public class ProductService {
 
 
     public List<ProductInfo> findProducts(Integer categoryId) {
-        List<Product> products = productRepository.findProductsBy(categoryId);
+        List<Product> products = productRepository.findProductsBy(categoryId, AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
@@ -34,13 +37,13 @@ public class ProductService {
         product.setSellerUser(user);
         product.setDateAdded(LocalDate.now());
         product.setIsActive(true);
-        product.setStatus("A");
+        product.setStatus(AVAILABLE);
         Product savedProduct = productRepository.save(product);
         return productMapper.productToProductResponse(savedProduct);
     }
 
     public List<ProductInfo> findProductsByRegionId(Integer regionId) {
-        List<Product> products = productRepository.findProductsByRegionId(regionId);
+        List<Product> products = productRepository.findProductsByRegionId(regionId, AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
@@ -50,12 +53,12 @@ public class ProductService {
     }
 
     public List<ProductInfo> findAllProducts() {
-        List<Product> products = productRepository.findAllProducts();
+        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
     public List<ProductInfo> findRecentProducts() {
-        List<Product> products = productRepository.findAllProducts();
+        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
         List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
         return productInfos.stream().limit(5).collect(Collectors.toList());
     }
