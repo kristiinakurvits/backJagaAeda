@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.domain.user;
 
 import com.teamProject.backJagaAeda.application.contact.ContactInfo;
+import com.teamProject.backJagaAeda.application.contact.LocationInfo;
 import com.teamProject.backJagaAeda.application.contact.LocationRequest;
 import com.teamProject.backJagaAeda.application.login.RegisterRequest;
 import com.teamProject.backJagaAeda.domain.user.contact.Contact;
@@ -70,14 +71,6 @@ UserService {
         return user.get();
     }
 
-    public void updateContactDetail(ContactInfo request) {
-        Contact contact = contactRepository.findById(request.getContactId()).get();
-        contact.setFirstName(request.getFirstName());
-        contact.setLastName(request.getLastName());
-        contact.setMobile(request.getMobile());
-        contactRepository.save(contact);
-    }
-
     public void addAddress(LocationRequest request) {
         Location location = locationMapper.locationRequestToLocation(request);
         Contact contact = contactRepository.findById(request.getContactId()).get();
@@ -95,6 +88,22 @@ UserService {
     public List<LocationRequest> findContactLocationsByContactId(Integer contactId) {
         List<Location> locations = locationRepository.findContactLocationsBy(contactId);
         return locationMapper.locationsToLocationRequest(locations);
+    }
+    public void updateContactDetail(ContactInfo request) {
+        Contact contact = contactRepository.findById(request.getContactId()).get();
+        contact.setFirstName(request.getFirstName());
+        contact.setLastName(request.getLastName());
+        contact.setMobile(request.getMobile());
+        contactRepository.save(contact);
+    }
+
+    public void updateAddressDetail(LocationInfo request) {
+        Location location = locationRepository.findById(request.getLocationId()).get();
+        location.setName(request.getLocationName());
+        location.setAddress(request.getAddress());
+        Region region = regionRepository.findById(request.getRegionId()).get();
+        location.setRegion(region);
+        locationRepository.save(location);
 
     }
 }
