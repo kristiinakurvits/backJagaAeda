@@ -15,17 +15,11 @@ public class ContactController {
     private UserService userService;
 
 
-
     // TODO: 15.09.2022 service lõpetada (mäpper)
     @GetMapping("/contact")
+
     public ContactInfo findContactDetail(Integer contactId) {
         return userService.findContactDetail(contactId);
-    }
-
-    @PatchMapping("/contact")
-    @Operation(summary = "Lisa kliendi profiilile puuduolev nimi, perekonnanimi, mobiili number")
-    public void updateContactDetail(@RequestBody ContactInfo request) {
-        userService.updateContactDetail(request);
     }
 
     // TODO: 15.09.2022 service lõpetada (mäpper)
@@ -34,9 +28,16 @@ public class ContactController {
         return userService.findContactLocationsByContactId(contactId);
     }
 
-    // TODO: 15.09.2022 service lõpetada (mäpper)
+    @PatchMapping("/contact")
+    @Operation(summary = "Lisa kliendi profiilile puuduolev nimi, perekonnanimi, mobiili number")
+    public void updateContactDetail(@RequestBody ContactInfo request) {
+        userService.updateContactDetail(request);
+    }
+
+
+
     @PostMapping("/address")
-    @Operation(summary = "Lisa kliendi profiilile aadressi informatsioon userId järgi")
+    @Operation(summary = "Lisa contactId-le ja regionId-e aadressi informatsioon")
     public void addAddress(@RequestBody LocationRequest request) {
         userService.addAddress(request);
     }
