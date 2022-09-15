@@ -21,4 +21,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("select p from Product p order by p.dateAdded DESC, p.isActive DESC")
     List<Product> findAllProducts();
+
+
 }
