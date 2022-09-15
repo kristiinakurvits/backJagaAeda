@@ -35,11 +35,6 @@ public class ProductService {
     @Resource
     private OrderMapper orderMapper;
 
-    public List<ProductInfo> findProducts(Integer categoryId) {
-        List<Product> products = productRepository.findProductsBy(categoryId, AVAILABLE);
-        return productMapper.productsToProductInfos(products);
-    }
-
     public ProductResponse addProduct(ProductRequest request) {
         Product product = productMapper.productRequestToProduct(request);
         User user = userService.getValidUser(request.getUserId());
@@ -51,16 +46,6 @@ public class ProductService {
         return productMapper.productToProductResponse(savedProduct);
     }
 
-    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
-        List<Product> products = productRepository.findProductsByRegionId(regionId, AVAILABLE);
-        return productMapper.productsToProductInfos(products);
-    }
-
-    public List<ProductInfo> findProductsByUserId(Integer userId) {
-        List<Product> products = productRepository.findProductsByUserId(userId);
-        return productMapper.productsToProductInfos(products);
-    }
-
     public List<ProductInfo> findAllProducts() {
         List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
         return productMapper.productsToProductInfos(products);
@@ -70,6 +55,21 @@ public class ProductService {
         List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
         List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
         return productInfos.stream().limit(5).collect(Collectors.toList());
+    }
+
+    public List<ProductInfo> findProductsByCategory(Integer categoryId) {
+        List<Product> products = productRepository.findProductsByCategory(categoryId, AVAILABLE);
+        return productMapper.productsToProductInfos(products);
+    }
+
+    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
+        List<Product> products = productRepository.findProductsByRegionId(regionId, AVAILABLE);
+        return productMapper.productsToProductInfos(products);
+    }
+
+    public List<ProductInfo> findProductsByUserId(Integer userId) {
+        List<Product> products = productRepository.findProductsByUserId(userId);
+        return productMapper.productsToProductInfos(products);
     }
 
     public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {

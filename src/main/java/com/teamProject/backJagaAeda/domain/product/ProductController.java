@@ -17,34 +17,10 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
-    @GetMapping("/category")
-    @Operation(summary = "Leiab tooted kategooria järgi")
-    public List<ProductInfo> findProducts(Integer categoryId) {
-        return businessService.findProducts(categoryId);
-    }
-
     @PostMapping("/new")
     @Operation(summary = "Uue kuulutuse lisamine")
     public ProductResponse addProduct(@RequestBody ProductRequest request) {
         return productService.addProduct(request);
-    }
-
-    @GetMapping("/region")
-    @Operation(summary = "Leiab tooted regiooni järgi")
-    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
-        return businessService.findProductsByRegionId(regionId);
-    }
-
-    @GetMapping("/user/products")
-    @Operation(summary = "Leiab tooted kasutaja järgi")
-    public List<ProductInfo> findProductsByUserId(Integer userId) {
-        return businessService.findProductsByUserId(userId);
-    }
-
-    @GetMapping("/buyer")
-    @Operation(summary = "Leiab tooted ostja järgi")
-    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
-        return businessService.findProductsByBuyerId(buyerId);
     }
 
     @GetMapping("/all")
@@ -57,6 +33,30 @@ public class ProductController {
     @Operation(summary = "Leiab 5 viimati lisatud toodet")
     public List<ProductInfo> findRecentProducts() {
         return businessService.findRecentProducts();
+    }
+
+    @GetMapping("/category")
+    @Operation(summary = "Leiab tooted kategooria järgi")
+    public List<ProductInfo> findProductsByCategory(Integer categoryId) {
+        return businessService.findProductsByCategory(categoryId);
+    }
+
+    @GetMapping("/region")
+    @Operation(summary = "Leiab tooted regiooni järgi")
+    public List<ProductInfo> findProductsByRegionId(Integer regionId) {
+        return businessService.findProductsByRegionId(regionId);
+    }
+
+    @GetMapping("/user")
+    @Operation(summary = "Leiab tooted kasutaja järgi")
+    public List<ProductInfo> findProductsByUserId(Integer userId) {
+        return businessService.findProductsByUserId(userId);
+    }
+
+    @GetMapping("/buyer")
+    @Operation(summary = "Leiab tooted ostja järgi")
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        return businessService.findProductsByBuyerId(buyerId);
     }
 }
 

@@ -29,9 +29,9 @@ public interface ProductMapper {
     @Mapping(source = "name", target = "productName")
     @Mapping(source = "measureUnit.unit", target = "measureUnit")
 //    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
-    @Mapping(target = "imageBase64", ignore = true)
-    @Mapping(target = "regionName", source = "location.id")
-    @Mapping(target = "categoryId", source = "category.id")
+    @Mapping(ignore = true, target = "imageBase64")
+    @Mapping(source = "location.id", target = "regionName")
+    @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
 
 

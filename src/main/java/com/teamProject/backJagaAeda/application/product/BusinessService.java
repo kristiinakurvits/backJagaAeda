@@ -15,8 +15,8 @@ public class BusinessService {
     @Resource
     private ProductMapper productMapper;
 
-    public List<ProductInfo> findProducts(Integer categoryId) {
-        return productService.findProducts(categoryId);
+    public List<ProductInfo> findProductsByCategory(Integer categoryId) {
+        return productService.findProductsByCategory(categoryId);
     }
 
     public List<ProductInfo> findProductsByRegionId(Integer regionId) {
