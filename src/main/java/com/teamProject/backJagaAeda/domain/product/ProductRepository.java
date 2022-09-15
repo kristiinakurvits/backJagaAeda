@@ -18,4 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("select p from Product p where p.sellerUser.id = ?1 order by p.dateAdded DESC, p.isActive DESC")
     List<Product> findProductsByUserId(Integer userId);
+
+
 }

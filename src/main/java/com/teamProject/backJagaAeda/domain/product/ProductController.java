@@ -39,6 +39,12 @@ public class ProductController {
     public List<ProductInfo> findProductsByUserId(Integer userId) {
         return businessService.findProductsByUserId(userId);
     }
+
+    @GetMapping("/buyer")
+    @Operation(summary = "Leiab tooted ostja järgi")
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        return businessService.findProductsByBuyerId(buyerId);
+    }
 }
 
 

@@ -1,6 +1,8 @@
 package com.teamProject.backJagaAeda.domain.product;
 
-import com.teamProject.backJagaAeda.domain.user.Region;
+import com.teamProject.backJagaAeda.domain.order.OrderMapper;
+import com.teamProject.backJagaAeda.domain.order.ProductOrder;
+import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,12 @@ public class ProductService {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private ProductOrderRepository productOrderRepository;
+
+    @Resource
+    private OrderMapper orderMapper;
 
 
     public List<ProductInfo> findProducts(Integer categoryId) {
@@ -54,6 +62,13 @@ public class ProductService {
         List<Product> products = productRepository.findProductsByUserId(userId);
         return productMapper.productsToProductInfos(products);
     }
+
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        List<ProductOrder> products = productOrderRepository.findProductsByBuyerId(buyerId);
+        return orderMapper.productsToProductInfos(products);
+//
+    }
+
 }
 
 
