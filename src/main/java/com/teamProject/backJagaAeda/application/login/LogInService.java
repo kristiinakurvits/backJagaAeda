@@ -1,6 +1,9 @@
 package com.teamProject.backJagaAeda.application.login;
 
 import com.teamProject.backJagaAeda.domain.user.*;
+import com.teamProject.backJagaAeda.domain.user.contact.Contact;
+import com.teamProject.backJagaAeda.domain.user.contact.ContactMapper;
+import com.teamProject.backJagaAeda.domain.user.contact.ContactService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

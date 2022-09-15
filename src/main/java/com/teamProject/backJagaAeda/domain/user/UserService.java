@@ -1,9 +1,18 @@
 package com.teamProject.backJagaAeda.domain.user;
 
-import com.teamProject.backJagaAeda.application.login.ContactInfo;
-import com.teamProject.backJagaAeda.application.login.LocationRequest;
+import com.teamProject.backJagaAeda.application.contact.ContactInfo;
+import com.teamProject.backJagaAeda.application.contact.LocationRequest;
 import com.teamProject.backJagaAeda.application.login.RegisterRequest;
-import com.teamProject.backJagaAeda.application.login.UserMapper;
+import com.teamProject.backJagaAeda.domain.user.contact.Contact;
+import com.teamProject.backJagaAeda.domain.user.contact.ContactMapper;
+import com.teamProject.backJagaAeda.domain.user.contact.ContactRepository;
+import com.teamProject.backJagaAeda.domain.user.location.Location;
+import com.teamProject.backJagaAeda.domain.user.location.LocationMapper;
+import com.teamProject.backJagaAeda.domain.user.location.LocationRepository;
+import com.teamProject.backJagaAeda.domain.user.region.Region;
+import com.teamProject.backJagaAeda.domain.user.region.RegionRepository;
+import com.teamProject.backJagaAeda.domain.user.role.Role;
+import com.teamProject.backJagaAeda.domain.user.role.RoleService;
 import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 

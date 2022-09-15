@@ -1,6 +1,6 @@
 package com.teamProject.backJagaAeda.domain.order;
 
-import com.teamProject.backJagaAeda.domain.product.ProductInfo;
+import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.product.measureunit;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "region")
-public class Region {
+@Table(name = "measure_unit")
+public class MeasureUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "county", nullable = false)
-    private String county;
+    @Column(name = "unit", nullable = false)
+    private String unit;
 
 }

@@ -1,5 +1,6 @@
-package com.teamProject.backJagaAeda.domain.product;
+package com.teamProject.backJagaAeda.application.product;
 
+import com.teamProject.backJagaAeda.domain.product.Product;
 import lombok.Data;
 
 import java.io.Serializable;

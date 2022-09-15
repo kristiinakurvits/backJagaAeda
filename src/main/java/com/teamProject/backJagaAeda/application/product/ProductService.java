@@ -1,8 +1,11 @@
-package com.teamProject.backJagaAeda.domain.product;
+package com.teamProject.backJagaAeda.application.product;
 
 import com.teamProject.backJagaAeda.domain.order.OrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
+import com.teamProject.backJagaAeda.domain.product.Product;
+import com.teamProject.backJagaAeda.domain.product.ProductMapper;
+import com.teamProject.backJagaAeda.domain.product.ProductRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;

@@ -1,5 +1,8 @@
 package com.teamProject.backJagaAeda.domain.product;
 
+import com.teamProject.backJagaAeda.application.product.ProductInfo;
+import com.teamProject.backJagaAeda.application.product.ProductRequest;
+import com.teamProject.backJagaAeda.application.product.ProductResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

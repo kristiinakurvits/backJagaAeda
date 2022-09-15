@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.product.category;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,8 +8,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

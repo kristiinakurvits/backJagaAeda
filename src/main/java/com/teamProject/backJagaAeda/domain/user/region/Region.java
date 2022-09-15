@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.domain.product;
+package com.teamProject.backJagaAeda.domain.user.region;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "region")
+public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "county", nullable = false)
+    private String county;
 
 }

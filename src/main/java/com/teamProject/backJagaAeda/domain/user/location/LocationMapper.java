@@ -1,6 +1,6 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.user.location;
 
-import com.teamProject.backJagaAeda.application.login.LocationRequest;
+import com.teamProject.backJagaAeda.application.contact.LocationRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

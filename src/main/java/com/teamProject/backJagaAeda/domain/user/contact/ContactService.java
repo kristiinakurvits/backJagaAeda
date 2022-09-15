@@ -1,7 +1,7 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.user.contact;
 
 import com.teamProject.backJagaAeda.application.login.RegisterRequest;
-import com.teamProject.backJagaAeda.application.login.RegisterResponse;
+import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.application.login;
+package com.teamProject.backJagaAeda.application.contact;
 
 import lombok.Data;
 

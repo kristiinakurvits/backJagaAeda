@@ -1,6 +1,6 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.user.contact;
 
-import com.teamProject.backJagaAeda.application.login.ContactInfo;
+import com.teamProject.backJagaAeda.application.contact.ContactInfo;
 import com.teamProject.backJagaAeda.application.login.RegisterRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

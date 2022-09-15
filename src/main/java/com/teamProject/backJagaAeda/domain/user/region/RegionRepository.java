@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.user.region;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

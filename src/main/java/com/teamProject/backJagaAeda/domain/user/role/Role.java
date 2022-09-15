@@ -1,4 +1,4 @@
-package com.teamProject.backJagaAeda.domain.product;
+package com.teamProject.backJagaAeda.domain.user.role;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "measure_unit")
-public class MeasureUnit {
+@Table(name = "role")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "unit", nullable = false)
-    private String unit;
+    @Column(name = "name", nullable = false)
+    private String name;
 
 }

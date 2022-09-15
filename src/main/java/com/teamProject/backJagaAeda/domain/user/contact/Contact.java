@@ -1,5 +1,6 @@
-package com.teamProject.backJagaAeda.domain.user;
+package com.teamProject.backJagaAeda.domain.user.contact;
 
+import com.teamProject.backJagaAeda.domain.user.User;
 import lombok.Data;
 
 import javax.persistence.*;
