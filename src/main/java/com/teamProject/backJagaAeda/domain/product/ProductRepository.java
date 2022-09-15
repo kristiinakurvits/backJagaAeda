@@ -19,4 +19,16 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("select p from Product p where p.location.region.id = ?1 and p.status = ?2 order by p.dateAdded DESC")
     List<Product> findProductsByRegionId(Integer id, String status);
 
+    @Query("""
+            select p from Product p
+            where upper(p.name) like upper(concat('%', ?1, '%')) and p.status = ?2
+            order by p.dateAdded""")
+    List<Product> findProductsByKeyword(String name, String status);
+
+
+
+
+
+
+
 }

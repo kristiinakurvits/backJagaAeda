@@ -58,6 +58,14 @@ public class ProductController {
     public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
         return businessService.findProductsByBuyerId(buyerId);
     }
+
+    @GetMapping("/keyword")
+    @Operation(summary = "Leiab tooted otsingusõna järgi")
+    public List<ProductInfo> findProductsByKeyword(String keyword) {
+//        keyword = keyword.substring(0, keyword.length() - 2);
+        return businessService.findProductsByKeyword(keyword);
+    }
 }
+
 
 

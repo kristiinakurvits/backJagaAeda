@@ -76,6 +76,11 @@ public class ProductService {
         List<ProductOrder> products = productOrderRepository.findProductsByBuyerId(buyerId);
         return orderMapper.productsToProductInfos(products);
     }
+
+    public List<ProductInfo> findProductsByKeyword(String keyword) {
+        List<Product> products = productRepository.findProductsByKeyword(keyword, AVAILABLE);
+        return productMapper.productsToProductInfos(products);
+    }
 }
 
 
