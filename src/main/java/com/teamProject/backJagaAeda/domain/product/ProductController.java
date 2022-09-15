@@ -40,6 +40,12 @@ public class ProductController {
         return businessService.findProductsByUserId(userId);
     }
 
+    @GetMapping("/buyer")
+    @Operation(summary = "Leiab tooted ostja järgi")
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        return businessService.findProductsByBuyerId(buyerId);
+    }
+
     @GetMapping("/all")
     @Operation(summary = "Leiab kõik tooted")
     public List<ProductInfo> findAllProducts() {
@@ -52,12 +58,5 @@ public class ProductController {
         return businessService.findRecentProducts();
     }
 }
-
-
-
-
-
-
-
 
 

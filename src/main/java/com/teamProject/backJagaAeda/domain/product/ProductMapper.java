@@ -1,17 +1,11 @@
 package com.teamProject.backJagaAeda.domain.product;
 
-import com.teamProject.backJagaAeda.domain.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", imports = Instant.class)
@@ -33,8 +27,8 @@ public interface ProductMapper {
     @Mapping(source = "measureUnit.unit", target = "measureUnit")
 //    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     @Mapping(target = "imageBase64", ignore = true)
-    @Mapping(source = "location.id", target= "regionName")
-    @Mapping(source = "category.id", target = "categoryId")
+    @Mapping(target= "regionName", source = "location.id")
+    @Mapping(target = "categoryId", source = "category.id")
     ProductInfo productsToProductInfo(Product product);
 
 

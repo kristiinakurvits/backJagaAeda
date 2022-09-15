@@ -26,6 +26,10 @@ public class BusinessService {
         return productService.findProductsByUserId(userId);
     }
 
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        return productService.findProductsByBuyerId(buyerId);
+    }
+
     public List<ProductInfo> findAllProducts() {
         return productService.findAllProducts();
     }

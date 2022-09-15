@@ -1,6 +1,8 @@
 package com.teamProject.backJagaAeda.domain.product;
 
-import com.teamProject.backJagaAeda.domain.user.Region;
+import com.teamProject.backJagaAeda.domain.order.OrderMapper;
+import com.teamProject.backJagaAeda.domain.order.ProductOrder;
+import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,6 @@ import static com.teamProject.backJagaAeda.application.Status.AVAILABLE;
 @Service
 public class ProductService {
 
-
     @Resource
     private ProductRepository productRepository;
 
@@ -25,6 +26,11 @@ public class ProductService {
     @Resource
     private UserService userService;
 
+    @Resource
+    private ProductOrderRepository productOrderRepository;
+
+    @Resource
+    private OrderMapper orderMapper;
 
     public List<ProductInfo> findProducts(Integer categoryId) {
         List<Product> products = productRepository.findProductsBy(categoryId, AVAILABLE);
@@ -61,6 +67,11 @@ public class ProductService {
         List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
         List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
         return productInfos.stream().limit(5).collect(Collectors.toList());
+    }
+
+    public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
+        List<ProductOrder> products = productOrderRepository.findProductsByBuyerId(buyerId);
+        return orderMapper.productsToProductInfos(products);
     }
 }
 
