@@ -33,8 +33,15 @@ public class ContactController {
         userService.updateContactDetail(request);
     }
 
+    @PatchMapping("/address")
+    @Operation(summary = "Muuda kliendi aadress ja 'regionId' 'locationId' järgi.")
+    public void updateAddressDetail(@RequestBody LocationInfo request) {
+        userService.updateAddressDetail(request);
+    }
+
+
     @PostMapping("/address")
-    @Operation(summary = "Lisa contactId-le ja regionId-e aadressi informatsioon")
+    @Operation(summary = "Lisa 'contactId'-le ja 'regionId'-e aadressi informatsioon")
     public void addAddress(@RequestBody LocationRequest request) {
         userService.addAddress(request);
     }

@@ -1,5 +1,6 @@
 package com.teamProject.backJagaAeda.domain.user.location;
 
+import com.teamProject.backJagaAeda.application.contact.LocationInfo;
 import com.teamProject.backJagaAeda.application.contact.LocationRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,7 +20,4 @@ public interface LocationMapper {
     LocationRequest locationToContactRequest(Location location);
 
     List<LocationRequest> locationsToLocationRequest(List<Location> locations);
-
-
-
 }
