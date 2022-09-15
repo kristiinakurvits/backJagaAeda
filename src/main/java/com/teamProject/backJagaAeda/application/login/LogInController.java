@@ -35,8 +35,16 @@ public class LogInController {
         userService.updateContactDetail(request);
     }
 
+    @PostMapping("/address")
+    @Operation(summary = "Lisa kliendi profiilile aadressi informatsioon userId järgi")
+    public void addAddress(@RequestBody ContactInfo request) {
+        userService.addAddress(request);
+    }
+//        public void addAddress(@RequestBody LocationInfo request) {
+//            userService.addAddress(request)
+    }
 
     // TODO: 14.09.2022 Display profile information by user_ID (profileView)
     // TODO: 14.09.2022 Save contact/address (save address/addresses in profileView
+    //add location information to contact Id
     // TODO: 14.09.2022 Update contact/address (update address/addresses in profileWiev
-}

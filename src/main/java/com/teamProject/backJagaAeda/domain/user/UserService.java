@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.domain.user;
 
 import com.teamProject.backJagaAeda.application.login.ContactInfo;
+import com.teamProject.backJagaAeda.application.login.LocationInfo;
 import com.teamProject.backJagaAeda.application.login.UserMapper;
 import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,15 @@ public class UserService {
         contact.setLastName(request.getLastName());
         contact.setMobile(request.getMobile());
         contactRepository.save(contact);
+    }
+
+    public void addAddress(ContactInfo request) {
+        //Location location = contactMappre.contactInfoLocation(request)
+        //Contact contact = contactRepository.findById(request.getContactId()).get();
+        //location.setRegionId(request.getRegionId)
+        //location.setName(request.getName)
+        //location.setAddress(request.getAddress)
+        //locationRepository.save(location);
+
     }
 }
