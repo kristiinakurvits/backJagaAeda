@@ -21,7 +21,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class
+UserService {
 
     @Resource
     private UserMapper userMapper;
@@ -56,7 +57,6 @@ public class UserService {
     public User createAndAddNewUser(RegisterRequest request) {
         boolean userExists = userRepository.existsByUserName(request.getUserName());
         ValidationService.validateUserNameExists(userExists, request.getUserName());
-
         User user = userMapper.registerRequestToUser(request);
         Role role = roleService.getRoleUser();
         user.setRole(role);
@@ -79,9 +79,6 @@ public class UserService {
     }
 
     public void addAddress(LocationRequest request) {
-// TODO: 15.09.2022 mäppime requestist location objekti niipalju andmeid kui saab
-// TODO: 15.09.2022
-        // TODO: INDREK MÄPPER
         Location location = locationMapper.locationRequestToLocation(request);
         Contact contact = contactRepository.findById(request.getContactId()).get();
         Region region = regionRepository.findById(request.getRegionId()).get();
@@ -92,13 +89,12 @@ public class UserService {
 
     public ContactInfo findContactDetail(Integer contactId) {
         Contact contact = contactRepository.findById(contactId).get();
-        // TODO: 15.09.2022 (mäpper lõpeteda)
         return contactMapper.contactToContactInfo(contact);
     }
 
     public List<LocationRequest> findContactLocationsByContactId(Integer contactId) {
-//        List<Location> locations = locationRepository.findContactLocationsByContactId(contactId);
-        // TODO: 15.09.2022 mäppida andmed ->  List<LocationRequest>
-        return null;
+        List<Location> locations = locationRepository.findContactLocationsBy(contactId);
+        return locationMapper.locationsToLocationRequest(locations);
+
     }
 }
