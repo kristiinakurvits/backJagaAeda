@@ -14,6 +14,5 @@ public class ContactInfo implements Serializable {
     private String firstName;
     private String lastName;
     private String mobile;
-    private List<LocationInfo> locations;
 
 }
