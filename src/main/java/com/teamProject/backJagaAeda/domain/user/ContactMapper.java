@@ -9,12 +9,9 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface ContactMapper {
 
+    // TODO: INDREK tee mäping
     @Mapping(source = "id", target = "contactId")
     ContactInfo contactToContactInfo(Contact contact);
 
-    @Mapping(source = "firstName", target = "firstName")
-    @Mapping(source = "lastName", target = "lastName")
-//    @Mapping(source = "eMail", target = "eMail")
-    @Mapping(source = "mobile", target = "mobile")
     Contact registerRequestToContact(RegisterRequest request);
 }
