@@ -1,6 +1,6 @@
 package com.teamProject.backJagaAeda.application.product;
 
-import com.teamProject.backJagaAeda.domain.order.OrderMapper;
+import com.teamProject.backJagaAeda.domain.order.ProductOrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
 import com.teamProject.backJagaAeda.domain.product.Product;
@@ -33,10 +33,10 @@ public class ProductService {
     private ProductOrderRepository productOrderRepository;
 
     @Resource
-    private OrderMapper orderMapper;
+    private ProductOrderMapper productOrderMapper;
 
     public List<ProductInfo> findProducts(Integer categoryId) {
-        List<Product> products = productRepository.findProductsBy(categoryId, AVAILABLE);
+        List<Product> products = productRepository.findProductsByCategory(categoryId, AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
@@ -62,20 +62,27 @@ public class ProductService {
     }
 
     public List<ProductInfo> findAllProducts() {
-        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
+        List<Product> products = productRepository.findAllProductsByStatus(AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
     public List<ProductInfo> findRecentProducts() {
-        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
+        List<Product> products = productRepository.findAllProductsByStatus(AVAILABLE);
         List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
         return productInfos.stream().limit(5).collect(Collectors.toList());
     }
 
     public List<ProductInfo> findProductsByBuyerId(Integer buyerId) {
         List<ProductOrder> products = productOrderRepository.findProductsByBuyerId(buyerId);
-        return orderMapper.productsToProductInfos(products);
+        return productOrderMapper.productsToProductInfos(products);
     }
+
+    public ProductRequest findProductDetails(Integer productId) {
+        Product product = productRepository.findById(productId).get();
+        return productMapper.productToProductRequest(product);
+
+    }
+
 }
 
 

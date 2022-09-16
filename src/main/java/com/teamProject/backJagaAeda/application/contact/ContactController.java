@@ -14,10 +14,9 @@ public class ContactController {
     @Resource
     private UserService userService;
 
-
     // TODO: 15.09.2022 service lõpetada (mäpper)
     @GetMapping("/contact")
-
+    @Operation(summary = "Kuva kasutaja profiilile isiku andmed contactId järgi")
     public ContactInfo findContactDetail(Integer contactId) {
         return userService.findContactDetail(contactId);
     }
@@ -33,8 +32,6 @@ public class ContactController {
     public void updateContactDetail(@RequestBody ContactInfo request) {
         userService.updateContactDetail(request);
     }
-
-
 
     @PostMapping("/address")
     @Operation(summary = "Lisa contactId-le ja regionId-e aadressi informatsioon")

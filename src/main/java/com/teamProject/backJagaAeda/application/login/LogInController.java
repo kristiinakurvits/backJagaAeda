@@ -15,7 +15,6 @@ public class LogInController {
     @Resource
     private LogInService loginService;
 
-
     @PostMapping("/login")
     @Operation(summary = "Sisse logimine")
     public LogInResponse logIn(@RequestBody LogInRequest request) {

@@ -20,6 +20,7 @@ public class ProductController {
     @GetMapping("/category")
     @Operation(summary = "Leiab tooted kategooria järgi")
     public List<ProductInfo> findProducts(Integer categoryId) {
+
         return businessService.findProducts(categoryId);
     }
 
@@ -27,6 +28,12 @@ public class ProductController {
     @Operation(summary = "Uue kuulutuse lisamine")
     public ProductResponse addProduct(@RequestBody ProductRequest request) {
         return productService.addProduct(request);
+    }
+
+    @GetMapping("/new")
+    @Operation(summary = "Kuva lisatud kuulutuse andmed productId järgi")
+    public ProductRequest findProductDetails(Integer productId) {
+        return productService.findProductDetails(productId);
     }
 
     @GetMapping("/region")
@@ -58,6 +65,8 @@ public class ProductController {
     public List<ProductInfo> findRecentProducts() {
         return businessService.findRecentProducts();
     }
+
+
 }
 
 
