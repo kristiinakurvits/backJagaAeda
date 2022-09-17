@@ -1,5 +1,6 @@
 package com.teamProject.backJagaAeda.domain.order;
 
+import com.teamProject.backJagaAeda.application.order.OrderInfo;
 import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import org.mapstruct.Mapper;
@@ -23,4 +24,10 @@ public interface OrderMapper {
     @Mapping(source = "product.category.id", target = "categoryId")
     ProductInfo productsToProductInfos(ProductOrder product);
     List<ProductInfo> productsToProductInfos(List<ProductOrder> products);
+
+    @Mapping(source = "buyerUser.id", target = "buyerUserId")
+    OrderInfo orderToOrderInfo(Order order);
+    List<OrderInfo> orderToOrderInfos(List<Order> order);
 }
+
+

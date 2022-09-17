@@ -39,9 +39,9 @@ public class BusinessService {
         return productService.findRecentProducts();
     }
 
-
     public List<ProductInfo> findProductsByKeyword(String keyword) {
         keyword = keyword.substring(0, keyword.length() - 2);
         return productService.findProductsByKeyword(keyword);
     }
+
 }

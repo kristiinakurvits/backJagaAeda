@@ -2,6 +2,7 @@ package com.teamProject.backJagaAeda.application.product;
 
 import com.teamProject.backJagaAeda.domain.order.OrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
+import com.teamProject.backJagaAeda.domain.order.ProductOrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import com.teamProject.backJagaAeda.domain.product.ProductMapper;
@@ -34,6 +35,9 @@ public class ProductService {
 
     @Resource
     private OrderMapper orderMapper;
+
+    @Resource
+    private ProductOrderMapper productOrderMapper;
 
     public ProductResponse addProduct(ProductRequest request) {
         Product product = productMapper.productRequestToProduct(request);
@@ -80,6 +84,12 @@ public class ProductService {
     public List<ProductInfo> findProductsByKeyword(String keyword) {
         List<Product> products = productRepository.findProductsByKeyword(keyword, AVAILABLE);
         return productMapper.productsToProductInfos(products);
+    }
+
+    public ProductRequest findProductDetails(Integer productId) {
+        Product product = productRepository.findById(productId).get();
+        return productMapper.productToProductRequest(product);
+
     }
 }
 

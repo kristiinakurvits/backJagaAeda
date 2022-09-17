@@ -11,7 +11,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findProductsByUserId(Integer userId);
 
     @Query("select p from Product p where p.status = ?1 order by p.dateAdded DESC")
-    List<Product> findAllProductsStatus(String status);
+    List<Product> findAllProductsByStatus(String status);
 
     @Query("select p from Product p where p.category.id = ?1 and p.status = ?2 order by p.dateAdded DESC")
     List<Product> findProductsByCategory(Integer categoryId, String status);

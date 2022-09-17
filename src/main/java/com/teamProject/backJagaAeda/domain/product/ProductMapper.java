@@ -34,11 +34,15 @@ public interface ProductMapper {
     @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
 
-
     List<ProductInfo> productsToProductInfos(List<Product> products);
 
     @Named("byteArrayToString")
     static String byteArrayToString(byte[] imageBase64) {
         return new String(imageBase64);
     }
+
+    @Mapping(source = "category.id", target = "categoryId")
+    @Mapping(source = "location.id", target = "regionName")
+    @Mapping(source = "measureUnit.id", target = "measureUnitId")
+    ProductRequest productToProductRequest(Product product);
 }
