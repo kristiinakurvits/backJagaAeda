@@ -51,12 +51,12 @@ public class ProductService {
     }
 
     public List<ProductInfo> findAllProducts() {
-        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
+        List<Product> products = productRepository.findAllProductsByStatus(AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
 
     public List<ProductInfo> findRecentProducts() {
-        List<Product> products = productRepository.findAllProductsStatus(AVAILABLE);
+        List<Product> products = productRepository.findAllProductsByStatus(AVAILABLE);
         List<ProductInfo> productInfos = productMapper.productsToProductInfos(products);
         return productInfos.stream().limit(5).collect(Collectors.toList());
     }
