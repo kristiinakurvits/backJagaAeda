@@ -1,6 +1,6 @@
-package com.teamProject.backJagaAeda.domain.product;
+package com.teamProject.backJagaAeda.application.product;
 
-import com.teamProject.backJagaAeda.application.product.*;
+import com.teamProject.backJagaAeda.domain.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class GardenProductController {
 
     @Resource
     private BusinessService businessService;

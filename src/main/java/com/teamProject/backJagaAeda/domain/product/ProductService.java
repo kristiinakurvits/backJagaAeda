@@ -1,5 +1,8 @@
-package com.teamProject.backJagaAeda.application.product;
+package com.teamProject.backJagaAeda.domain.product;
 
+import com.teamProject.backJagaAeda.application.product.ProductInfo;
+import com.teamProject.backJagaAeda.application.product.ProductRequest;
+import com.teamProject.backJagaAeda.application.product.ProductResponse;
 import com.teamProject.backJagaAeda.domain.order.OrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderMapper;

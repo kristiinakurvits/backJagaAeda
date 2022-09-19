@@ -30,7 +30,7 @@ public interface ProductMapper {
     @Mapping(source = "measureUnit.unit", target = "measureUnit")
 //    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     @Mapping(ignore = true, target = "imageBase64")
-    @Mapping(source = "location.id", target = "regionName")
+    @Mapping(source = "location.region.county", target = "regionName")
     @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
 

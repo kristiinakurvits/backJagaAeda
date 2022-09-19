@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.application.product;
 
 import com.teamProject.backJagaAeda.domain.product.ProductMapper;
+import com.teamProject.backJagaAeda.domain.product.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
