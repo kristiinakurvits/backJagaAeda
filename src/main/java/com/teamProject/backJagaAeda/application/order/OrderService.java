@@ -1,16 +1,24 @@
 package com.teamProject.backJagaAeda.application.order;
 
+import com.teamProject.backJagaAeda.application.contact.LocationRequest;
+import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import com.teamProject.backJagaAeda.domain.order.*;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import com.teamProject.backJagaAeda.domain.product.ProductRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserRepository;
+import com.teamProject.backJagaAeda.domain.user.contact.Contact;
+import com.teamProject.backJagaAeda.domain.user.location.Location;
+import com.teamProject.backJagaAeda.domain.user.region.Region;
+import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 
+import static com.teamProject.backJagaAeda.application.OrderStatus.COMPLETED;
 import static com.teamProject.backJagaAeda.application.OrderStatus.PENDING;
 import static com.teamProject.backJagaAeda.application.Status.BOOKED;
 
@@ -22,6 +30,9 @@ public class OrderService {
 
     @Resource
     private OrderMapper orderMapper;
+
+    @Resource
+    private ProductOrderMapper productOrderMapper;
 
     @Resource
     private ProductRepository productRepository;
@@ -54,9 +65,7 @@ public class OrderService {
             User user = userRepository.findById(cartInfo.getBuyerUserId()).get();
             Order order = createAndSavePendingOrder(user);
             findAndSaveProductOrder(cartInfo.getProductId(), order);
-
         }
-
     }
 
     private Order createAndSavePendingOrder(User user) {
@@ -72,10 +81,30 @@ public class OrderService {
         Product product = productRepository.findById(productId).get();
         product.setStatus(BOOKED);
         productRepository.save(product);
-
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProduct(product);
         productOrder.setOrder(order);
         productOrderRepository.save(productOrder);
+    }
+
+    public List<ProductInfo> findProductsByOrderId(Integer orderId) {
+        List<ProductOrder> productOrders = productOrderRepository.findProductsByOrderId(orderId);
+        return productOrderMapper.productOrdersToProductInfos(productOrders);
+    }
+
+    public void confirmOrder(Integer orderId) {
+        Optional<ProductOrder> optionalProductOrder = productOrderRepository.findById(orderId);
+        ValidationService.validateOrderExists(optionalProductOrder);
+        ProductOrder productOrder = optionalProductOrder.get();
+        productOrder.setOrder();
+        productOrder.setProduct();
+        productOrderRepository.save(productOrder);
+
+
+//        Optional<SupportTicket> optionalSupportTicket = supportTicketRepository.findById(supportTicketId);
+//        ValidationService.validateTicketExists(optionalSupportTicket);
+//        SupportTicket supportTicket = optionalSupportTicket.get();
+//        supportTicket.setIsSolved(true);
+//        supportTicketRepository.save(supportTicket);
     }
 }

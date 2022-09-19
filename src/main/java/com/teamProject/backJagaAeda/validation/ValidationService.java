@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.validation;
 
 
+import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.infrastructure.exception.BusinessException;
 
@@ -9,7 +10,7 @@ import java.util.Optional;
 public class ValidationService {
 
     public static final String INCORRECT_LOGIN_DETAILS = "Kasutajanimi või parool on vale";
-//   public static final String CUSTOMER_NOT_EXISTS = "Sellist klienti ei eksisteeri";
+   public static final String ORDER_NOT_EXISTS = "Sellist tellimust ei eksisteeri";
 //
 //
 //    public static final String INSUFFICIENT_FUNDS = "Kontol pole piisavalt vahendeid tehingu sooritamiseks";
@@ -29,6 +30,12 @@ public class ValidationService {
     public static void validateUserNameExists(boolean userExists, String userName) {
         if (userExists) {
             throw new BusinessException("Kasutajanimi on juba hõivatud", "Kasutajanimi " + userName + " on juba kasutusel. Vali mõni teine kasutajanimi");
+        }
+    }
+
+    public static void validateOrderExists(Optional<ProductOrder> productOrder) {
+        if (productOrder.isEmpty()) {
+            throw new BusinessException(ORDER_NOT_EXISTS, "Sellist tellimust ei ole loodud, palun lisa soovitud toode ostukorvi");
         }
     }
 
