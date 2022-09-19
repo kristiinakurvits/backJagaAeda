@@ -96,15 +96,7 @@ public class OrderService {
         Optional<ProductOrder> optionalProductOrder = productOrderRepository.findById(orderId);
         ValidationService.validateOrderExists(optionalProductOrder);
         ProductOrder productOrder = optionalProductOrder.get();
-        productOrder.setOrder();
-        productOrder.setProduct();
         productOrderRepository.save(productOrder);
 
-
-//        Optional<SupportTicket> optionalSupportTicket = supportTicketRepository.findById(supportTicketId);
-//        ValidationService.validateTicketExists(optionalSupportTicket);
-//        SupportTicket supportTicket = optionalSupportTicket.get();
-//        supportTicket.setIsSolved(true);
-//        supportTicketRepository.save(supportTicket);
     }
 }
