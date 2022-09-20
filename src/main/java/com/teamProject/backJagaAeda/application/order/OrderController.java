@@ -37,4 +37,6 @@ public class OrderController {
     public void confirmOrderAndChangeStatuses(@PathVariable Integer orderId) {
         orderService.confirmOrderAndChangeStatuses(orderId);
     }
+
+
 }
