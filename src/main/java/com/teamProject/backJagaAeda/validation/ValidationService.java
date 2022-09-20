@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.validation;
 
 
+import com.teamProject.backJagaAeda.domain.order.Order;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.infrastructure.exception.BusinessException;
@@ -33,8 +34,8 @@ public class ValidationService {
         }
     }
 
-    public static void validateOrderExists(Optional<ProductOrder> productOrder) {
-        if (productOrder.isEmpty()) {
+    public static void validateOrderExists(Optional<Order> order) {
+        if (order.isEmpty()) {
             throw new BusinessException(ORDER_NOT_EXISTS, "Sellist tellimust ei ole loodud, palun lisa soovitud toode ostukorvi");
         }
     }

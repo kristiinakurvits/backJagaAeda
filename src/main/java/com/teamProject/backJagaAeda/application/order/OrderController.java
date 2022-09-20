@@ -32,9 +32,9 @@ public class OrderController {
         return orderService.findProductsByOrderId(orderId);
     }
 
-    @PatchMapping("/confirm/{orderId}")
-    @Operation(summary = "Kinnitab tellimuse ja muudab orderStatust ja productStatust")
-    public void confirmOrder(@PathVariable Integer orderId) {
-        orderService.confirmOrder(orderId);
-    }
+//    @PatchMapping("/confirm/{orderId}")
+//    @Operation(summary = "Kinnitab tellimuse ja muudab orderStatust ja productStatust")
+//    public void confirmOrderAndChangeStatuses(@PathVariable Integer orderId) {
+//        orderService.confirmOrderAndChangeStatuses(orderId);
+//    }
 }

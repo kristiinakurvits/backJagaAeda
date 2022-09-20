@@ -1,26 +1,25 @@
 package com.teamProject.backJagaAeda.application.order;
 
-import com.teamProject.backJagaAeda.application.contact.LocationRequest;
 import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import com.teamProject.backJagaAeda.domain.order.*;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import com.teamProject.backJagaAeda.domain.product.ProductRepository;
+import com.teamProject.backJagaAeda.domain.product.ProductService;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserRepository;
-import com.teamProject.backJagaAeda.domain.user.contact.Contact;
-import com.teamProject.backJagaAeda.domain.user.location.Location;
-import com.teamProject.backJagaAeda.domain.user.region.Region;
 import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.teamProject.backJagaAeda.application.OrderStatus.COMPLETED;
+import static com.teamProject.backJagaAeda.application.OrderStatus.CONFIRMED;
 import static com.teamProject.backJagaAeda.application.OrderStatus.PENDING;
 import static com.teamProject.backJagaAeda.application.Status.BOOKED;
+import static com.teamProject.backJagaAeda.application.Status.COMPLETED;
 
 @Service
 public class OrderService {
@@ -39,6 +38,9 @@ public class OrderService {
 
     @Resource
     private ProductOrderRepository productOrderRepository;
+
+    @Resource
+    private ProductService productService;
 
     @Resource
     private UserRepository userRepository;
@@ -92,11 +94,17 @@ public class OrderService {
         return productOrderMapper.productOrdersToProductInfos(productOrders);
     }
 
-    public void confirmOrder(Integer orderId) {
-        Optional<ProductOrder> optionalProductOrder = productOrderRepository.findById(orderId);
-        ValidationService.validateOrderExists(optionalProductOrder);
-        ProductOrder productOrder = optionalProductOrder.get();
-        productOrderRepository.save(productOrder);
-
+//    public void confirmOrderAndChangeStatuses(Integer orderId) {
+//        Optional<Order> optionalOrder = orderRepository.findById(orderId);
+//        ValidationService.validateOrderExists(optionalOrder);
+//        Order order = optionalOrder.get();
+//        order.setStatus(CONFIRMED);
+//        List<ProductOrder> productOrders = new ArrayList<>();
+//        for (ProductOrder input: orderId) {
+//            ProductOrder productOrder = productService.findProductDetails(productId);
+//            product.setStatus(input.getStatus(COMPLETED));
+//            productOrder.add(product);
+//        }
+//        productService.updateAllStatuses(productOrders);        p
+//        }
     }
-}

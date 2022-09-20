@@ -19,4 +19,7 @@ public interface ProductOrderRepository extends JpaRepository<ProductOrder, Inte
     @Query("select p from ProductOrder p where p.order.id = ?1 order by p.product.location.region.county, p.product.name")
     List<ProductOrder> findProductsByOrderId(Integer id);
 
+    @Query("select p from ProductOrder p where p.order.id = ?1")
+    List<ProductOrder> findByOrderId(Integer id);
+
 }
