@@ -12,6 +12,7 @@ import com.teamProject.backJagaAeda.domain.product.ProductMapper;
 import com.teamProject.backJagaAeda.domain.product.ProductRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
+import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -85,6 +86,7 @@ public class ProductService {
     }
 
     public List<ProductInfo> findProductsByKeyword(String keyword) {
+        keyword = keyword.substring(0, keyword.length() - 2);
         List<Product> products = productRepository.findProductsByKeyword(keyword, AVAILABLE);
         return productMapper.productsToProductInfos(products);
     }
