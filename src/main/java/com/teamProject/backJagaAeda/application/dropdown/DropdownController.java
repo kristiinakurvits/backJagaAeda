@@ -1,6 +1,7 @@
 package com.teamProject.backJagaAeda.application.dropdown;
 
 
+import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnitDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,4 +27,12 @@ public class DropdownController {
     public List<RegionDto> getAllRegions() {
         return dropdownService.getAllRegions();
     }
+
+    @GetMapping("/units")
+    @Operation(summary = "Kuva kaalu/mõõtühikute nimed ja Id-d")
+    public List<MeasureUnitDto> getAllMeasureUnits() {
+        return dropdownService.getAllMeasureUnits();
+
+    }
+
 }
