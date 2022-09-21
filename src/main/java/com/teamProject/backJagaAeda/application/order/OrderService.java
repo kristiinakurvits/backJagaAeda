@@ -94,17 +94,18 @@ public class OrderService {
         return productOrderMapper.productOrdersToProductInfos(productOrders);
     }
 
-//    public void confirmOrderAndChangeStatuses(Integer orderId) {
-//        Optional<Order> optionalOrder = orderRepository.findById(orderId);
-//        ValidationService.validateOrderExists(optionalOrder);
-//        Order order = optionalOrder.get();
-//        order.setStatus(CONFIRMED);
-//        List<ProductOrder> productOrders = new ArrayList<>();
-//        for (ProductOrder input: orderId) {
-//            ProductOrder productOrder = productService.findProductDetails(productId);
-//            product.setStatus(input.getStatus(COMPLETED));
-//            productOrder.add(product);
-//        }
-//        productService.updateAllStatuses(productOrders);        p
-//        }
+    public void confirmOrderAndChangeStatuses(Integer orderId) {
+        Optional<Order> optionalOrder = orderRepository.findById(orderId);
+        ValidationService.validateOrderExists(optionalOrder);
+        Order order = optionalOrder.get();
+        ValidationService.validateOrderStatusPending(order);
+        order.setStatus(CONFIRMED);
+        orderRepository.save(order);
+        for (ProductOrder productOrder : productOrderRepository.findProductsByOrderId(orderId)) {
+            Product product = productOrder.getProduct();
+            product.setStatus(COMPLETED);
+            product.setIsActive(false);
+            productRepository.save(product);
+        }
     }
+}

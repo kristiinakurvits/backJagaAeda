@@ -1,8 +1,8 @@
 package com.teamProject.backJagaAeda.validation;
 
 
+import com.teamProject.backJagaAeda.application.OrderStatus;
 import com.teamProject.backJagaAeda.domain.order.Order;
-import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.infrastructure.exception.BusinessException;
 
@@ -12,9 +12,9 @@ public class ValidationService {
 
     public static final String INCORRECT_LOGIN_DETAILS = "Kasutajanimi või parool on vale";
    public static final String ORDER_NOT_EXISTS = "Sellist tellimust ei eksisteeri";
-//
-//
-//    public static final String INSUFFICIENT_FUNDS = "Kontol pole piisavalt vahendeid tehingu sooritamiseks";
+
+    public static final String INCORRECT_ORDER_STATUS = "Tellimust ei ole võimalik kinnitada";
+
 //    public static final String MINIMUM_DEPOSIT_REQUIREMENT = "Miinumum deposiidi nõue";
 //    public static final Integer MINIMUM_DEPOSIT_AMOUNT = 5;
 //
@@ -40,11 +40,11 @@ public class ValidationService {
         }
     }
 
-//    public static void validateAccountExists(Optional<Account> account, Integer accountId) {
-//        if (account.isEmpty()) {
-//            throw new DataNotFoundException(ACCOUNT_NOT_EXISTS, "Sellist kontot ID'ga " + accountId + " ei leitud");
-//        }
-//    }
+    public static void validateOrderStatusPending(Order order) {
+        if (!order.getStatus().equals(OrderStatus.PENDING)) {
+            throw new BusinessException(INCORRECT_ORDER_STATUS, "Tellimust ei ole võimalik kinnitada. Palun kontrollige tellimuse staatust");
+        }
+    }
 //
 //    public static void validateAccountExists(Optional<Account> account, String accountNumber) {
 //        if (account.isEmpty()) {

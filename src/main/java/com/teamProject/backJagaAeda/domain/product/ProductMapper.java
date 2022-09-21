@@ -16,12 +16,13 @@ public interface ProductMapper {
 
     @Mapping(source = "categoryId", target = "category.id")
     @Mapping(source = "measureUnitId", target = "measureUnit.id")
-    @Mapping(source = "regionName", target = "location.id")
+    @Mapping(source = "locationId", target = "location.id")
     Product productRequestToProduct(ProductRequest productRequest);
 
     @Mapping(source = "sellerUser.id", target = "sellerUserId")
     @Mapping(source = "category.id", target = "categoryId")
     @Mapping(source = "measureUnit.id", target = "measureUnitId")
+    @Mapping(source = "location.region.county", target = "regionName")
     ProductResponse productToProductResponse(Product product);
 
     @Mapping(source = "id", target = "productId")
@@ -42,7 +43,7 @@ public interface ProductMapper {
     }
 
     @Mapping(source = "category.id", target = "categoryId")
-    @Mapping(source = "location.id", target = "regionName")
+    @Mapping(source = "location.id", target = "locationId")
     @Mapping(source = "measureUnit.id", target = "measureUnitId")
     ProductRequest productToProductRequest(Product product);
 }
