@@ -47,5 +47,7 @@ public interface ProductMapper {
     @Mapping(source = "measureUnit.id", target = "measureUnitId")
     @Mapping(source = "sellerUser.id", target = "userId")
     @Mapping(source = "sellerUser.userName",target = "userName")
+    @Mapping(source = "category.name",target = "categoryName")
+    @Mapping(source = "location.region.county",target = "regionName")
     ProductRequest productToProductRequest(Product product);
 }
