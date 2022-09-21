@@ -14,6 +14,7 @@ public class ProductRequest implements Serializable {
     private String description;
     private Integer quantity;
     private Integer measureUnitId;
+    private String measureUnitName;
     private Integer locationId;
     private String regionName;
     private byte[] imageBase64;
