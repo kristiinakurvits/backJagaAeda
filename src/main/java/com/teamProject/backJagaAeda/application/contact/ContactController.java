@@ -15,15 +15,15 @@ public class ContactController {
     private UserService userService;
 
 
-    @GetMapping("/contact")
-    @Operation(summary = "Kuva kasutaja profiilile isiku andmed contactId järgi")
-    public ContactInfo findContactDetail(Integer contactId) {
-        return userService.findContactDetail(contactId);
+    @GetMapping("/contact/{userId}")
+    @Operation(summary = "Kuva kasutaja profiilile isiku andmed userId järgi")
+    public ContactInfo findContactDetail(@PathVariable Integer userId) {
+        return userService.findContactDetail(userId);
     }
 
-    @GetMapping("/location")
+    @GetMapping("/location/{contactId}")
     @Operation(summary = "Kuva kasutaja profiilile isiku aadressi andmed contactId järgi")
-    public List<LocationRequest> findContactLocationsByContactId(Integer contactId) {
+    public List<LocationRequest> findContactLocationsByContactId(@PathVariable Integer contactId) {
         return userService.findContactLocationsByContactId(contactId);
     }
 

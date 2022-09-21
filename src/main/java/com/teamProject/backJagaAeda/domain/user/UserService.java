@@ -80,8 +80,8 @@ UserService {
         locationRepository.save(location);
     }
 
-    public ContactInfo findContactDetail(Integer contactId) {
-        Contact contact = contactRepository.findById(contactId).get();
+    public ContactInfo findContactDetail(Integer userId) {
+        Contact contact = contactRepository.findByUserId(userId).get();
         return contactMapper.contactToContactInfo(contact);
     }
 
