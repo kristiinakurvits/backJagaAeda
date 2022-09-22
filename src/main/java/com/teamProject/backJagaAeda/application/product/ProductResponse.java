@@ -15,4 +15,5 @@ public class ProductResponse implements Serializable {
     private final Boolean isActive;
     private final LocalDate dateAdded;
     private final String status;
+
 }

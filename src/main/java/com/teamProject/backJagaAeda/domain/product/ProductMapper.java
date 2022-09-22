@@ -17,6 +17,7 @@ public interface ProductMapper {
     @Mapping(source = "categoryId", target = "category.id")
     @Mapping(source = "measureUnitId", target = "measureUnit.id")
     @Mapping(source = "locationId", target = "location.id")
+//    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     Product productRequestToProduct(ProductRequest productRequest);
 
     @Mapping(source = "sellerUser.id", target = "sellerUserId")
@@ -29,7 +30,7 @@ public interface ProductMapper {
     @Mapping(source = "sellerUser.id", target = "sellerUserId")
     @Mapping(source = "name", target = "productName")
     @Mapping(source = "measureUnit.unit", target = "measureUnit")
- //   @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
+//    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     @Mapping(ignore = true, target = "imageBase64")
     @Mapping(source = "location.region.county", target = "regionName")
     @Mapping(source = "category.id", target = "categoryId")

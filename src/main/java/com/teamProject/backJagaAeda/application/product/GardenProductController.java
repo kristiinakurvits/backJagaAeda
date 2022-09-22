@@ -71,6 +71,23 @@ public class GardenProductController {
     public List<ProductInfo> findProductsByKeyword(String keyword) {
         return businessService.findProductsByKeyword(keyword);
     }
+//
+//    @PostMapping("/image")
+//    @Operation(summary = "Pildi lisamine toote juurde")
+//    public void addPicture(String imageBase64){
+//        productService.addPicture(imageBase64);
+//    }
+
+    @PostMapping("/image")
+    @Operation(summary = "Pildi lisamine toote juurde")
+    public void addPicture(@RequestBody ProductRequest request){
+        productService.addPicture(request);
+    }
+
+//    @GetMapping("/image")
+//    @Operation(summary = "Pildi otsimine productId järgi")
+//    public
+
 }
 
 

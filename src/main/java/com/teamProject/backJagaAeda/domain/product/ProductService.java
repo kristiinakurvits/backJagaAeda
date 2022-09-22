@@ -7,15 +7,12 @@ import com.teamProject.backJagaAeda.domain.order.OrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrder;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderMapper;
 import com.teamProject.backJagaAeda.domain.order.ProductOrderRepository;
-import com.teamProject.backJagaAeda.domain.product.Product;
-import com.teamProject.backJagaAeda.domain.product.ProductMapper;
-import com.teamProject.backJagaAeda.domain.product.ProductRepository;
 import com.teamProject.backJagaAeda.domain.user.User;
 import com.teamProject.backJagaAeda.domain.user.UserService;
-import com.teamProject.backJagaAeda.validation.ValidationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -94,8 +91,18 @@ public class ProductService {
     public ProductRequest findProductDetails(Integer productId) {
         Product product = productRepository.findById(productId).get();
         return productMapper.productToProductRequest(product);
-
     }
+
+    public void addPicture(ProductRequest request) {
+        Product product = new Product();
+        System.out.println();
+        byte[] imageBase64AsByteArray = request.getImageBase64().getBytes(StandardCharsets.UTF_8);
+        product.setImageBase64(imageBase64AsByteArray);
+        productRepository.save(product);
+        productRepository.findByImageBase64(product.getImageBase64());
+        addPicture(request);
+    }
+
 }
 
 
