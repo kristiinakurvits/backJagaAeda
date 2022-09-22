@@ -17,6 +17,8 @@ public interface LocationMapper {
     @Mapping(source = "name", target = "locationName")
     @Mapping(source = "address", target = "address")
     @Mapping(source = "region.id", target = "regionId")
+    @Mapping(source = "contact.id", target = "contactId")
+    @Mapping(source = "id", target = "locationId")
     LocationRequest locationToContactRequest(Location location);
 
     List<LocationRequest> locationsToLocationRequest(List<Location> locations);

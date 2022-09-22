@@ -18,4 +18,5 @@ public class ProductInfo implements Serializable {
     private String imageBase64;
     private String regionName;
     private Integer categoryId;
+    private Boolean isActive;
 }
