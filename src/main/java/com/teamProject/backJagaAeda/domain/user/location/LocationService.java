@@ -9,7 +9,7 @@ import java.util.List;
 public class LocationService {
 
     @Resource
-    LocationRepository locationRepository;
+    private LocationRepository locationRepository;
 
     public List<Location> getAllLocations(Integer userId) {
         return locationRepository.findAllBy(userId);
