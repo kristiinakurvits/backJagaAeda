@@ -2,9 +2,10 @@ package com.teamProject.backJagaAeda.domain.user.location;
 
 import com.teamProject.backJagaAeda.application.contact.LocationInfo;
 import com.teamProject.backJagaAeda.application.contact.LocationRequest;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
+import com.teamProject.backJagaAeda.application.dropdown.LocationDto;
+import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnit;
+import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnitDto;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -20,4 +21,10 @@ public interface LocationMapper {
     LocationRequest locationToContactRequest(Location location);
 
     List<LocationRequest> locationsToLocationRequest(List<Location> locations);
+
+    @Mapping(source="id", target = "locationId")
+    @Mapping(source="name", target = "locationName")
+    LocationDto locationToLocationDto(Location location);
+    List<LocationDto> locationToLocationDtos(List<Location> locations);
+
 }

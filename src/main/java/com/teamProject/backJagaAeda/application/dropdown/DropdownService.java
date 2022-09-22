@@ -7,6 +7,9 @@ import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnit;
 import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnitDto;
 import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnitMapper;
 import com.teamProject.backJagaAeda.domain.product.measureunit.MeasureUnitService;
+import com.teamProject.backJagaAeda.domain.user.location.Location;
+import com.teamProject.backJagaAeda.domain.user.location.LocationMapper;
+import com.teamProject.backJagaAeda.domain.user.location.LocationService;
 import com.teamProject.backJagaAeda.domain.user.region.Region;
 import com.teamProject.backJagaAeda.domain.user.region.RegionMapper;
 import com.teamProject.backJagaAeda.domain.user.region.RegionService;
@@ -34,6 +37,10 @@ public class DropdownService {
 
     @Resource
     private MeasureUnitMapper measureUnitMapper;
+    @Resource
+    private LocationService locationService;
+    @Resource
+    private LocationMapper locationMapper;
 
 
     public List<CategoryDto> getAllCategories() {
@@ -49,5 +56,10 @@ public class DropdownService {
     public List<MeasureUnitDto> getAllMeasureUnits() {
         List<MeasureUnit> measureUnits = measureUnitService.getAllMeasureUnits();
         return measureUnitMapper.measureUnitToMeasureUnitDtos(measureUnits);
+    }
+
+    public List<LocationDto> getAllLocations(Integer userId) {
+        List<Location> locations = locationService.getAllLocations(userId);
+        return locationMapper.locationToLocationDtos(locations);
     }
 }

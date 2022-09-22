@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 public class ProductResponse implements Serializable {
-    private final Integer id;
+    private final Integer productId;
     private final Integer sellerUserId;
     private final Integer categoryId;
     private final String regionName;
