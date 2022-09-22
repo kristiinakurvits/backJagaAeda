@@ -38,7 +38,6 @@ public class GardenProductController {
     @GetMapping("/recent")
     @Operation(summary = "Leiab 5 viimati lisatud toodet")
     public List<ProductInfo> findRecentProducts() {
-
         return businessService.findRecentProducts();
     }
 
