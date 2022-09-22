@@ -14,6 +14,7 @@ public interface ContactMapper {
 
     @Mapping(source = "id", target = "contactId")
     @Mapping(source = "user.userName", target = "userName")
+    @Mapping(source = "user.id", target = "userId")
     ContactInfo contactToContactInfo(Contact contact);
 
     Contact registerRequestToContact(RegisterRequest request);

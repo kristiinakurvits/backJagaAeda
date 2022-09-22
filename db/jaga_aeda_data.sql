@@ -13,6 +13,7 @@ INSERT INTO public.contact (id, e_mail, mobile, first_name, last_name, user_id) 
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Juurviljad');
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Köögiviljad');
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Puuviljad');
+INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Marjadad');
 
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'kg');
 INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'g');
@@ -23,6 +24,19 @@ INSERT INTO public.measure_unit (id, unit) VALUES (DEFAULT, 'tk');
 INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Harjumaa');
 INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Tartumaa');
 INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Pärnumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Järvamaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Hiiumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Ida-Virumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Jõgevamaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Läänemaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Lääne-Virumaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Põlvamaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Raplamaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Saaremaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Valgamaa');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Viljandi');
+INSERT INTO public.region (id, county) VALUES (DEFAULT, 'Võrumaa');
+
 
 INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 1, 1, 'Kodu', null, null, 'Tondi, Tallinn');
 INSERT INTO public.location (id, contact_id, region_id, name, latitude, longtitude, address) VALUES (DEFAULT, 2, 2, 'Käbi talu', null, null, 'Talutee, Tartu');

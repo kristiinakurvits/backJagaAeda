@@ -8,4 +8,5 @@ public class LocationRequest {
     private Integer regionId;
     private String address;
     private String locationName;
+    private Integer locationId;
 }
