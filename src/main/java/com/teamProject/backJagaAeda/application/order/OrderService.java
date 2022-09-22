@@ -1,6 +1,5 @@
 package com.teamProject.backJagaAeda.application.order;
 
-import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import com.teamProject.backJagaAeda.domain.order.*;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import com.teamProject.backJagaAeda.domain.product.ProductRepository;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -89,9 +87,9 @@ public class OrderService {
         productOrderRepository.save(productOrder);
     }
 
-    public List<ProductInfo> findProductsByOrderId(Integer orderId) {
-        List<ProductOrder> productOrders = productOrderRepository.findProductsByOrderId(orderId);
-        return productOrderMapper.productOrdersToProductInfos(productOrders);
+    public List<CartItem> findPendingProductsByBuyerUserId(Integer buyerUserId) {
+        List<ProductOrder> productOrders = productOrderRepository.findProductsByStatusAndBuyerId(PENDING, buyerUserId);
+        return productOrderMapper.productOrdersToCartItems(productOrders);
     }
 
     public void confirmOrderAndChangeStatuses(Integer orderId) {

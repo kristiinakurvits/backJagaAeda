@@ -8,18 +8,14 @@ import java.util.List;
 public interface ProductOrderRepository extends JpaRepository<ProductOrder, Integer> {
 
     @Query("select p from ProductOrder p where p.order.buyerUser.id = ?1 order by p.order.dateTime DESC")
-    List<ProductOrder> findProductsByBuyerId(Integer id);
-
-    @Query("""
-            select p from ProductOrder p
-            where p.order.id = ?1 and p.order.status = ?2
-            order by p.product.location.region.county, p.product.name""")
-    List<ProductOrder> findOrderBy(Integer id, String status);
+    List<ProductOrder> findProductsByBuyerId(Integer buyerId);
 
     @Query("select p from ProductOrder p where p.order.id = ?1 order by p.product.location.region.county, p.product.name")
-    List<ProductOrder> findProductsByOrderId(Integer id);
+    List<ProductOrder> findProductsByOrderId(Integer orderId);
 
-    @Query("select p from ProductOrder p where p.order.id = ?1")
-    List<ProductOrder> findByOrderId(Integer id);
+    @Query("select p from ProductOrder p where p.order.status = ?1 and p.order.buyerUser.id = ?2 order by p.id")
+    List<ProductOrder> findProductsByStatusAndBuyerId(String status, Integer buyerId);
+
+
 
 }

@@ -47,7 +47,7 @@ INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, 
 INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 3, 2, 2,'Õunad', 'Hapud', 10, 5, true, null, '2022-09-07', 'B');
 INSERT INTO public.product (id, seller_user_id, category_id, location_id, name, description, quantity, measure_unit_id, is_active, image_base64, date_added, status) VALUES (DEFAULT, 2, 1, 2,'Herned', 'Ussitanud', 15, 1, false, null, '2022-09-06', 'C');
 
-INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'P', '2022-09-08 15:32:25.000000');
+-- INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'P', '2022-09-08 15:32:25.000000');
 INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'C', '2022-09-08 15:32:49.000000');
 INSERT INTO public.order (id, buyer_user_id, status, date_time) VALUES (DEFAULT, 2, 'F', '2022-09-08 15:32:50.000000');
 

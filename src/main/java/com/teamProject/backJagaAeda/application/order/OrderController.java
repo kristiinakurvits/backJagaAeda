@@ -26,10 +26,10 @@ public class OrderController {
         orderService.addProductToCart(cartInfo);
     }
 
-    @GetMapping("/list")
-    @Operation(summary = "Leiab kõik ostukorvis olevad tooted orderId abil")
-    public List<ProductInfo> findProductsByOrderId(Integer orderId) {
-        return orderService.findProductsByOrderId(orderId);
+    @GetMapping("/cart/items")
+    @Operation(summary = "Leiab kõik ostukorvis olevad pooleli olevad ostetavad tooted buyerUserId abil")
+    public List<CartItem> findPendingProductsByBuyerUserId(Integer buyerUserId) {
+        return orderService.findPendingProductsByBuyerUserId(buyerUserId);
     }
 
     @PatchMapping("/confirm/{orderId}")
