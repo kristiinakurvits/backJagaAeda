@@ -91,7 +91,7 @@ public class OrderService {
 
     public List<ProductInfo> findProductsByOrderId(Integer orderId) {
         List<ProductOrder> productOrders = productOrderRepository.findProductsByOrderId(orderId);
-        return productOrderMapper.productOrdersToProductInfos(productOrders);
+        return orderMapper.productsToProductInfos(productOrders);
     }
 
     public void confirmOrderAndChangeStatuses(Integer orderId) {
