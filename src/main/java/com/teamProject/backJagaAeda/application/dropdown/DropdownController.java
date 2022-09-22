@@ -32,13 +32,12 @@ public class DropdownController {
     @Operation(summary = "Kuva kaalu/mõõtühikute nimed ja Id-d")
     public List<MeasureUnitDto> getAllMeasureUnits() {
         return dropdownService.getAllMeasureUnits();
-
     }
 
     @GetMapping("/location")
     @Operation(summary = "Kuva location andmed UserId järgi")
-    public List<LocationDto> getAllLocations(Integer userId){
-        return dropdownService.getAllLocations(userId);
+    public List<LocationDto> getAllLocationsByUserId(Integer userId){
+        return dropdownService.getAllLocationsByUserId(userId);
     }
 
 

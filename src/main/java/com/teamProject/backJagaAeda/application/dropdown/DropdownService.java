@@ -58,7 +58,7 @@ public class DropdownService {
         return measureUnitMapper.measureUnitToMeasureUnitDtos(measureUnits);
     }
 
-    public List<LocationDto> getAllLocations(Integer userId) {
+    public List<LocationDto> getAllLocationsByUserId(Integer userId) {
         List<Location> locations = locationService.getAllLocations(userId);
         return locationMapper.locationToLocationDtos(locations);
     }
