@@ -35,4 +35,12 @@ public class DropdownController {
 
     }
 
+    @GetMapping("/location")
+    @Operation(summary = "Kuva location andmed UserId järgi")
+    public List<LocationDto> getAllLocations(Integer userId){
+        return dropdownService.getAllLocations(userId);
+    }
+
+
+
 }
