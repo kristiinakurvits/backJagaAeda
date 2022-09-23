@@ -1,5 +1,6 @@
 package com.teamProject.backJagaAeda.application.order;
 
+import com.teamProject.backJagaAeda.application.product.ProductInfo;
 import com.teamProject.backJagaAeda.domain.order.*;
 import com.teamProject.backJagaAeda.domain.product.Product;
 import com.teamProject.backJagaAeda.domain.product.ProductRepository;
@@ -16,8 +17,7 @@ import java.util.Optional;
 
 import static com.teamProject.backJagaAeda.application.OrderStatus.CONFIRMED;
 import static com.teamProject.backJagaAeda.application.OrderStatus.PENDING;
-import static com.teamProject.backJagaAeda.application.Status.BOOKED;
-import static com.teamProject.backJagaAeda.application.Status.COMPLETED;
+import static com.teamProject.backJagaAeda.application.Status.*;
 
 @Service
 public class OrderService {
@@ -87,9 +87,9 @@ public class OrderService {
         productOrderRepository.save(productOrder);
     }
 
-    public List<CartItem> findPendingProductsByBuyerUserId(Integer buyerUserId) {
+    public List<ProductInfo> findPendingProductsByBuyerUserId(Integer buyerUserId) {
         List<ProductOrder> productOrders = productOrderRepository.findProductsByStatusAndBuyerId(PENDING, buyerUserId);
-        return productOrderMapper.productOrdersToCartItems(productOrders);
+        return productOrderMapper.productOrdersToProductInfos(productOrders);
     }
 
     public void confirmOrderAndChangeStatuses(Integer orderId) {
@@ -105,5 +105,13 @@ public class OrderService {
             product.setIsActive(false);
             productRepository.save(product);
         }
+    }
+
+    public void deletePendingProductByProductOrderId(Integer productOrderId) {
+        ProductOrder productOrder = productOrderRepository.findById(productOrderId).get();
+        Product product = productOrder.getProduct();
+        product.setStatus(AVAILABLE);
+        productRepository.save(product);
+        productOrderRepository.delete(productOrder);
     }
 }

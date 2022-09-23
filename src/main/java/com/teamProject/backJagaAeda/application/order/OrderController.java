@@ -28,8 +28,14 @@ public class OrderController {
 
     @GetMapping("/cart/items")
     @Operation(summary = "Leiab kõik ostukorvis olevad pooleli olevad ostetavad tooted buyerUserId abil")
-    public List<CartItem> findPendingProductsByBuyerUserId(Integer buyerUserId) {
+    public List<ProductInfo> findPendingProductsByBuyerUserId(Integer buyerUserId) {
         return orderService.findPendingProductsByBuyerUserId(buyerUserId);
+    }
+
+    @DeleteMapping("/cart/items")
+    @Operation(summary = "Kustutab productOrderId abil ostukorvist toote")
+    public void deletePendingProductByProductOrderId(Integer productOrderId) {
+        orderService.deletePendingProductByProductOrderId(productOrderId);
     }
 
     @PatchMapping("/confirm/{orderId}")

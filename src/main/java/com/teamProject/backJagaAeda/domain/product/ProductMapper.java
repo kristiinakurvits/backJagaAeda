@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public interface ProductMapper {
     @Mapping(source = "categoryId", target = "category.id")
     @Mapping(source = "measureUnitId", target = "measureUnit.id")
     @Mapping(source = "locationId", target = "location.id")
+    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "stringToByteArray")
     Product productRequestToProduct(ProductRequest productRequest);
 
     @Mapping(source = "id", target = "productId")
@@ -30,18 +32,12 @@ public interface ProductMapper {
     @Mapping(source = "sellerUser.id", target = "sellerUserId")
     @Mapping(source = "name", target = "productName")
     @Mapping(source = "measureUnit.unit", target = "measureUnit")
-//    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
-    @Mapping(ignore = true, target = "imageBase64")
+    @Mapping(source = "imageBase64", target = "imageBase64", qualifiedByName = "byteArrayToString")
     @Mapping(source = "location.region.county", target = "regionName")
     @Mapping(source = "category.id", target = "categoryId")
     ProductInfo productsToProductInfo(Product product);
 
     List<ProductInfo> productsToProductInfos(List<Product> products);
-
-    @Named("byteArrayToString")
-    static String byteArrayToString(byte[] imageBase64) {
-        return new String(imageBase64);
-    }
 
     @Mapping(source = "category.id", target = "categoryId")
     @Mapping(source = "location.id", target = "locationId")
@@ -53,4 +49,14 @@ public interface ProductMapper {
     @Mapping(source = "location.region.county",target = "regionName")
     @Mapping(ignore = true, target = "imageBase64")
     ProductRequest productToProductRequest(Product product);
+
+    @Named("byteArrayToString")
+    default String byteArrayToString(byte[] imageBase64) {
+        return imageBase64 == null ? null : new String(imageBase64);
+    }
+
+    @Named("stringToByteArray")
+    default byte[] stringToByteArray(String base64AsString) {
+        return  base64AsString == null ? null :  base64AsString.getBytes(StandardCharsets.UTF_8);
+    }
 }

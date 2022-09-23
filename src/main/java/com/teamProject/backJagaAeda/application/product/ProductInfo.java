@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 @Data
 public class ProductInfo implements Serializable {
+    private Integer productOrderId;
     private Integer productId;
     private Integer sellerUserId;
     private String productName;
@@ -17,5 +18,6 @@ public class ProductInfo implements Serializable {
     private String measureUnit;
     private String imageBase64;
     private String regionName;
+    private String address;
     private Integer categoryId;
 }
