@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static com.teamProject.backJagaAeda.application.OrderStatus.CONFIRMED;
 import static com.teamProject.backJagaAeda.application.OrderStatus.PENDING;
+import static com.teamProject.backJagaAeda.application.Status.BOOKED;
+import static com.teamProject.backJagaAeda.application.Status.COMPLETED;
 import static com.teamProject.backJagaAeda.application.Status.*;
 
 @Service
@@ -90,6 +93,11 @@ public class OrderService {
     public List<ProductInfo> findPendingProductsByBuyerUserId(Integer buyerUserId) {
         List<ProductOrder> productOrders = productOrderRepository.findProductsByStatusAndBuyerId(PENDING, buyerUserId);
         return productOrderMapper.productOrdersToProductInfos(productOrders);
+    }
+
+    public List<ProductInfo> findProductsByOrderId(Integer orderId) {
+        List<ProductOrder> productOrders = productOrderRepository.findProductsByOrderId(orderId);
+        return orderMapper.productsToProductInfos(productOrders);
     }
 
     public void confirmOrderAndChangeStatuses(Integer orderId) {

@@ -22,6 +22,9 @@ public interface OrderMapper {
     @Mapping(ignore = true, target = "imageBase64")
     @Mapping(source = "product.location.id", target = "regionName")
     @Mapping(source = "product.category.id", target = "categoryId")
+    @Mapping(source = "product.quantity", target = "quantity")
+    @Mapping(source = "product.isActive", target = "isActive")
+
     ProductInfo productsToProductInfos(ProductOrder product);
     List<ProductInfo> productsToProductInfos(List<ProductOrder> products);
 

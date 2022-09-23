@@ -20,4 +20,5 @@ public class ProductInfo implements Serializable {
     private String regionName;
     private String address;
     private Integer categoryId;
+    private Boolean isActive;
 }
